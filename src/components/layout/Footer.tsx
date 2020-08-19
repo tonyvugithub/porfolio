@@ -1,13 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import { faCopyright } from '@fortawesome/free-regular-svg-icons';
 import { motion } from 'framer-motion';
 
 interface FooterWrapperProps {}
 interface CopyRightProps {}
-interface SocialIconWrapperProps {}
+interface SocialMediaWrapperProps {}
 
 const FooterWrapper = styled.div<FooterWrapperProps>`
   width: 100%;
@@ -23,7 +20,7 @@ const FooterWrapper = styled.div<FooterWrapperProps>`
 
 const CopyRight = styled.p<CopyRightProps>``;
 
-const SocialMediaWrapper = styled.div`
+const SocialMediaWrapper = styled.div<SocialMediaWrapperProps>`
   padding-top: 15px;
   display: flex;
   justify-content: center;
@@ -34,8 +31,6 @@ const SocialMediaWrapper = styled.div`
     cursor: pointer;
   }
 `;
-
-const copyIcon = <FontAwesomeIcon icon={faCopyright} />;
 
 const iconVariants = {
   start: {
@@ -63,9 +58,17 @@ const iconVariants = {
 };
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
   return (
     <FooterWrapper>
-      <CopyRight>{copyIcon} Tony Vu 2020</CopyRight>
+      <CopyRight>
+        <motion.i
+          className="far fa-copyright"
+          animate={{ color: '#f6416c', textShadow: '0px 0px 8px #f6416c' }}
+          transition={{ duration: 1.5, yoyo: Infinity, ease: 'easeInOut' }}
+        ></motion.i>{' '}
+        Tony Vu {currentYear}
+      </CopyRight>
       <SocialMediaWrapper>
         <motion.i
           className="fab fa-linkedin-in icon"

@@ -1,18 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { rotateXInfinity } from 'animations/variants';
 
 interface ProfileWrapperProps {}
 interface ProfileContentWrapperProps {}
 const ProfileWrapper = styled.div<ProfileWrapperProps>`
   width: 100%;
-  background: rgb(64, 89, 173);
-  background: radial-gradient(
-    circle,
-    rgba(64, 89, 173, 1) 0%,
-    rgba(24, 44, 109, 1) 100%
-  );
+  background: rgb(24, 44, 109);
   color: white;
   padding: 50px 0;
   h1 {
@@ -20,11 +14,11 @@ const ProfileWrapper = styled.div<ProfileWrapperProps>`
   }
 `;
 
-const ProfileContentWrapper = styled.div<ProfileContentWrapperProps>`
+const ProfileContentWrapper = styled(motion.div)<ProfileContentWrapperProps>`
   display: flex;
   padding: 0 10px;
   flex-direction: column;
-
+  gap: 20px;
   @media (min-width: 768px) {
     max-width: 1200px;
     flex-direction: row;
@@ -32,43 +26,89 @@ const ProfileContentWrapper = styled.div<ProfileContentWrapperProps>`
   }
 `;
 
-const ProfilePhotoWrapper = styled.div`
+const ProfilePhotoWrapper = styled(motion.div)`
   margin: 0 auto;
   width: 300px;
   height: 300px;
+  position: relative;
+
+  &:before {
+    content: '';
+    border-bottom: 40px solid rgb(24, 44, 109);
+    border-right: 40px solid transparent;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  &:after {
+    content: '';
+    border-top: 60px solid rgb(24, 44, 109);
+    border-left: 60px solid transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const ProfileSummaryWrapper = styled.div`
   flex: 1;
+  display: grid;
+  grid-auto-rows: min-content;
+  grid-gap: 10px;
+  text-align: start;
 `;
 
-const SummaryPointWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 20px auto;
-  grid-auto-rows: min-content;
-`;
+const SummaryPointWrapper = styled.div``;
 
 const Profile = () => {
+  const [showProfile, setShowProfile] = useState(false);
+
+  useEffect(() => {
+    function fadeIn() {
+      const yPos = window.scrollY;
+      setShowProfile(yPos > 300);
+    }
+
+    /* function fadeOut() {
+      const yPos = window.scrollY;
+      setShowProfile(yPos < 200);
+    } */
+
+    window.addEventListener('scroll', fadeIn, false);
+    //window.addEventListener('scroll', fadeOut, false);
+
+    return () => {
+      window.removeEventListener('scroll', fadeIn, false);
+      //window.removeEventListener('scroll', fadeOut, false);
+    };
+  }, []);
+
   return (
     <ProfileWrapper>
       <h1>&lt; Profile /&gt;</h1>
-      <ProfileContentWrapper>
-        <ProfilePhotoWrapper />
+      <ProfileContentWrapper
+        initial={{ opacity: 0 }}
+        animate={{ opacity: showProfile ? 1 : 0, y: 0 }}
+        transition={{
+          duration: 1.5,
+          delay: 0.5,
+          ease: 'easeInOut',
+        }}
+      >
+        <ProfilePhotoWrapper>
+          <img
+            src={process.env.PUBLIC_URL + '/img/personal-image-mobile.png'}
+            alt=""
+          />
+        </ProfilePhotoWrapper>
         <ProfileSummaryWrapper>
           <SummaryPointWrapper>
-            <div>
-              <motion.div
-                variants={rotateXInfinity(360, 2, 'easeInOut')}
-                animate="visible"
-                style={{
-                  height: '20px',
-                  display: 'flex',
-                  alignContent: 'center',
-                }}
-              >
-                &gt;
-              </motion.div>
-            </div>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
               magni assumenda, voluptatem impedit voluptas nam similique earum
@@ -81,14 +121,6 @@ const Profile = () => {
             </p>
           </SummaryPointWrapper>
           <SummaryPointWrapper>
-            <div style={{ height: '10px' }}>
-              <motion.div
-                variants={rotateXInfinity(360, 2, 'easeInOut')}
-                animate="visible"
-              >
-                &gt;
-              </motion.div>
-            </div>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
               magni assumenda, voluptatem impedit voluptas nam similique earum

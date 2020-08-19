@@ -118,6 +118,7 @@ const contentVariant = (shadow: string) => {
     },
   };
 };
+
 const textVariants = {
   start: {
     rotate: 0,
