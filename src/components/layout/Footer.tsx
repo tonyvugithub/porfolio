@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 
 interface FooterWrapperProps {}
@@ -16,6 +16,12 @@ const FooterWrapper = styled.div<FooterWrapperProps>`
   padding: 50px 0;
   text-align: center;
   color: rgb(245, 245, 245);
+
+  ${(p) =>
+    p.theme.id === 'dark' &&
+    css`
+      border-top: 2px solid ${p.theme.text.secondary};
+    `}
 `;
 
 const CopyRight = styled.p<CopyRightProps>``;

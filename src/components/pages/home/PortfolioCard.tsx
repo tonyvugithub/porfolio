@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Card = styled.div`
   width: 100%;
@@ -55,7 +55,7 @@ const Back = styled.div`
   backface-visibility: hidden;
   padding: 20px;
 
-  background: #f6416c;
+  background: ${(p) => p.theme.card.primary};
   color: #f6416c;
   transform: rotateY(180deg);
 
@@ -210,7 +210,8 @@ const detailVariants = {
 };
 interface Project {
   title: string;
-  description: string;
+  what: string;
+  detail: string;
   liveUrl?: string;
   repoUrl?: string;
   demoUrl?: string;
@@ -258,7 +259,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ project }) => {
           />
 
           <Description>
-            <h2>{project.description}</h2>
+            <h2>{project.what}</h2>
           </Description>
         </Front>
         <Back className="back">
@@ -269,12 +270,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ project }) => {
             animate={showBackAnimation ? 'end' : 'start'}
           >
             <h2>{project.title}</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
-              deleniti temporibus illo odit. Laboriosam saepe ab iusto tempora.
-              Dicta recusandae commodi vitae nesciunt tempora corporis non
-              fugiat consequatur aliquam voluptatibus.
-            </p>
+            <p>{project.detail}</p>
           </ProjectDetailWrapper>
           <AnimatePresence exitBeforeEnter>
             <ProjectLinkWrapper

@@ -18,6 +18,8 @@ const HeaderWrapper = styled.div<HeaderWrapperProps>`
   left: 0;
   background: ${(p) => p.theme.palette.primary};
   border-bottom: 3px solid ${(p) => p.theme.text.secondary};
+  box-shadow: 0px 2px 8px
+    ${(p) => (p.theme.id === 'light' ? 'rgba(0, 0, 0, 0.7)' : '#0d7377')};
 
   padding: 0 10px;
   height: 60px;

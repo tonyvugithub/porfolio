@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
@@ -28,31 +28,14 @@ const ProfileContentWrapper = styled(motion.div)<ProfileContentWrapperProps>`
 
 const ProfilePhotoWrapper = styled(motion.div)`
   margin: 0 auto;
-  width: 300px;
-  height: 300px;
-  position: relative;
-
-  &:before {
-    content: '';
-    border-bottom: 40px solid ${(p) => p.theme.background.profile};
-    border-right: 40px solid transparent;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
-
-  &:after {
-    content: '';
-    border-top: 60px solid ${(p) => p.theme.background.profile};
-    border-left: 60px solid transparent;
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
+  width: min(300px, 90vw);
+  height: width;
+  border-radius: 50%;
 
   img {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
   }
 `;
 

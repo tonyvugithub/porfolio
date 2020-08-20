@@ -14,9 +14,13 @@ const darkTheme: DefaultTheme = {
   background: {
     profile: '#212121',
     portfolio: '#212121',
-    about: '',
+    about: '#212121',
     contact: '#212121',
     footer: '#212121',
+  },
+  card: {
+    primary: '#0d7377',
+    secondary: 'rgb(82, 82, 82)',
   },
 };
 

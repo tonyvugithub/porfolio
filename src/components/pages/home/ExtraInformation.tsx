@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
@@ -11,6 +11,12 @@ const ExtraInformationWrapper = styled.div<ExtraInformationWrapperProps>`
   width: 100%;
   display: flex;
   flex-direction: column;
+
+  ${(p) =>
+    p.theme.id === 'dark' &&
+    css`
+      border-top: 2px solid ${p.theme.text.secondary};
+    `}
 
   a {
     color: inherit;
@@ -56,12 +62,12 @@ const ExtraInformationWrapper = styled.div<ExtraInformationWrapperProps>`
 
 const AbouSectionWrapper = styled.div<AboutSectionWrapperProps>`
   height: 500px;
-  color: rgb(49, 54, 57);
-  background: rgb(151, 216, 196);
+  color: ${(p) => p.theme.text.primary};
+  background: ${(p) => p.theme.background.about};
   position: relative;
 
   .about {
-    border: 5px solid rgb(49, 54, 57);
+    border: 5px solid ${(p) => p.theme.text.primary};
     .about-text {
       display: flex;
       align-items: center;
@@ -82,9 +88,13 @@ const AbouSectionWrapper = styled.div<AboutSectionWrapperProps>`
 
 const ContactSectionWrapper = styled.div<ContactSectionWrapperProps>`
   height: 500px;
-  background: rgb(241, 166, 15);
+  background: ${(p) => p.theme.background.contact};
   color: rgb(245, 245, 245);
   position: relative;
+
+  .contact-name {
+    color: ${(p) => (p.theme.id === 'light' ? 'rgb(49, 54, 57)' : 'grey')};
+  }
 
   .contact {
     border: 5px solid rgb(245, 245, 245);
@@ -103,6 +113,14 @@ const ContactSectionWrapper = styled.div<ContactSectionWrapperProps>`
 
   @media (min-width: 768px) {
     flex: 1;
+  }
+
+  @media (max-width: 767px) {
+    ${(p) =>
+      p.theme.id === 'dark' &&
+      css`
+        border-top: 2px solid #14ffec;
+      `}
   }
 `;
 
@@ -165,7 +183,7 @@ const ExtraInformation = () => {
       </AbouSectionWrapper>
       <ContactSectionWrapper className="contact-section">
         <h2 className="title" data-aos="fade-up">
-          Contact (<span style={{ color: 'rgb(49, 54, 57)' }}> Tony </span>)
+          Contact (<span className="contact-name"> Tony </span>)
         </h2>
         <Link to="/contact">
           <motion.div

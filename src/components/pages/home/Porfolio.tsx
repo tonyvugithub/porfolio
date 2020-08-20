@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import React from 'react';
+import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 import PortfolioCard from './PortfolioCard';
 
@@ -10,6 +10,13 @@ const PortfolioWrapper = styled.div<PortfolioWrapperProps>`
   width: 100%;
   background: ${(p) => p.theme.background.portfolio};
   padding: 50px 0 100px 0;
+
+  ${(p) =>
+    p.theme.id === 'dark' &&
+    css`
+      border-top: 2px solid ${p.theme.text.secondary};
+      color: rgb(245, 245, 245);
+    `};
 
   h1 {
     margin-bottom: 50px;
@@ -27,8 +34,8 @@ const PortfolioContentWrapper = styled(motion.div)<
   padding: 0 10px;
 
   .card:nth-child(even) .back {
-    background: rgba(64, 89, 173);
-    color: rgba(64, 89, 173);
+    background: ${(p) => p.theme.card.secondary};
+    color: rgb(64, 89, 173);
   }
 
   .card:nth-child(even) .back .project-link-wrapper {
@@ -45,7 +52,9 @@ const Porfolio = () => {
   const projects = [
     {
       title: 'Next News',
-      description: 'A News Agregator',
+      what: 'A News Agregator',
+      detail:
+        'Built news fetcher app in SSR React with aim to optimize performance on machines with slow internet connection. Coded in TypeScript for better maintenance and documentation',
       liveUrl: 'dsadasda',
       repoUrl: 'dasdaasa',
       demoUrl: 'dsadasdas',
@@ -54,64 +63,73 @@ const Porfolio = () => {
         'Next.js',
         'Bootstrap',
         'TypeScript',
-        'Next.js',
-        'Bootstrap',
-        'TypeScript',
+        'Hacker News API',
+        'React',
+        'Redux',
       ],
     },
     {
       title: 'Food Artist',
-      description: 'A Recipe Management App',
+      what: 'A Recipe Management App',
+      detail:
+        'Built news fetcher app in SSR React with aim to optimize performance on machines with slow internet connection. Coded in TypeScript for better maintenance and documentation',
       liveUrl: 'dasdasda',
       repoUrl: 'dsadadas',
       demoUrl: 'dsadasdas',
       photoUrl: '/img/foodArtist.png',
-      techList: ['Next.js', 'Bootstrap', 'TypeScript', ''],
+      techList: ['React', 'Redux', 'Firebase'],
     },
     {
       title: 'Ng Boostrap Blog',
-      description: 'A Mock Blogging Website',
+      what: 'A Mock Blogging Website',
+      detail: '',
       liveUrl: 'dasdasdas',
       repoUrl: 'dasdasda',
       demoUrl: 'dsadasdas',
       photoUrl: '/img/angularBlog.png',
-      techList: ['Next.js', 'Bootstrap', 'TypeScript', ''],
+      techList: ['Angular', 'Bootstrap', 'MongoDB'],
     },
     {
       title: 'Fluttering Weather',
-      description: 'A Mobile Weather Forecast',
+      what: 'A Mobile Weather Forecast',
+      detail:
+        'Implemented Flutter’s widgets to develop a weather forecast mobile app providing 16-day forecast for 5000+ cities around the world',
       liveUrl: 'dasdasdas',
       repoUrl: 'dasdasda',
       demoUrl: 'dsadasdas',
       photoUrl: '/img/flutterWeather.png',
-      techList: ['Next.js', 'Bootstrap', 'TypeScript', ''],
+      techList: ['Dart', 'Flutter', 'Weather Bit API', 'OpenCage Geocode API'],
     },
     {
       title: 'React Calculator',
-      description: 'A Web-based Calculator',
+      what: 'A Web-based Calculator',
+      detail: '',
       liveUrl: 'dasdasdas',
       repoUrl: 'dasdasda',
       demoUrl: 'dsadasdas',
       photoUrl: '/img/calculator.png',
-      techList: ['Next.js', 'Bootstrap', 'TypeScript', ''],
+      techList: ['React', 'CSS'],
     },
     {
       title: 'Leave Store',
-      description: 'An E-commerce Store ',
+      what: 'An E-commerce Store',
+      detail: '',
       liveUrl: 'dasdasdas',
       repoUrl: 'dasdasda',
       demoUrl: 'dsadasdas',
       photoUrl: '/img/eshop.png',
-      techList: ['Next.js', 'Bootstrap', 'TypeScript', ''],
+      techList: ['Express.js', 'Handlebars', 'Sendrid', 'CSS'],
     },
     {
       title: 'Food Handling Test',
-      description: 'A MVC Mock Test Website',
+      what: 'A MVC Mock Test Website',
+      detail:
+        'Spearheaded a group of students to develop an MVC mock testing website that allows users to prepare for Food Handling exams by practicing on 60+ certified questions.',
       liveUrl: 'dasdasd',
       repoUrl: 'dadasdada',
       demoUrl: 'dsadasdas',
       photoUrl: '/img/nextNews.png',
-      techList: ['Next.js', 'Bootstrap', 'TypeScript', ''],
+      techList: ['Express.js', 'Handlebars', 'Google Map API'],
     },
   ];
 

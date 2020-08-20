@@ -22,6 +22,10 @@ declare module 'styled-components' {
       contact: string;
       footer: string;
     };
+    card: {
+      primary: string;
+      secondary: string;
+    };
     toggleTheme?: function;
   }
 }
