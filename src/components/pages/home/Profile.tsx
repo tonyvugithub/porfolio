@@ -6,7 +6,7 @@ interface ProfileWrapperProps {}
 interface ProfileContentWrapperProps {}
 const ProfileWrapper = styled.div<ProfileWrapperProps>`
   width: 100%;
-  background: rgb(24, 44, 109);
+  background: ${(p) => p.theme.background.profile};
   color: white;
   padding: 50px 0;
   h1 {
@@ -34,7 +34,7 @@ const ProfilePhotoWrapper = styled(motion.div)`
 
   &:before {
     content: '';
-    border-bottom: 40px solid rgb(24, 44, 109);
+    border-bottom: 40px solid ${(p) => p.theme.background.profile};
     border-right: 40px solid transparent;
     position: absolute;
     bottom: 0;
@@ -43,7 +43,7 @@ const ProfilePhotoWrapper = styled(motion.div)`
 
   &:after {
     content: '';
-    border-top: 60px solid rgb(24, 44, 109);
+    border-top: 60px solid ${(p) => p.theme.background.profile};
     border-left: 60px solid transparent;
     position: absolute;
     top: 0;
@@ -67,47 +67,27 @@ const ProfileSummaryWrapper = styled.div`
 const SummaryPointWrapper = styled.div``;
 
 const Profile = () => {
-  const [showProfile, setShowProfile] = useState(false);
-
-  useEffect(() => {
-    function fadeIn() {
-      const yPos = window.scrollY;
-      setShowProfile(yPos > 300);
-    }
-
-    /* function fadeOut() {
-      const yPos = window.scrollY;
-      setShowProfile(yPos < 200);
-    } */
-
-    window.addEventListener('scroll', fadeIn, false);
-    //window.addEventListener('scroll', fadeOut, false);
-
-    return () => {
-      window.removeEventListener('scroll', fadeIn, false);
-      //window.removeEventListener('scroll', fadeOut, false);
-    };
-  }, []);
-
   return (
     <ProfileWrapper>
       <h1>&lt; Profile /&gt;</h1>
-      <ProfileContentWrapper
-        initial={{ opacity: 0 }}
-        animate={{ opacity: showProfile ? 1 : 0, y: 0 }}
-        transition={{
-          duration: 1.5,
-          delay: 0.5,
-          ease: 'easeInOut',
-        }}
-      >
-        <ProfilePhotoWrapper>
+      <ProfileContentWrapper>
+        <ProfilePhotoWrapper
+          data-aos="fade-up"
+          data-aos-delay="150"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in"
+        >
           <img
             src={process.env.PUBLIC_URL + '/img/personal-image-mobile.png'}
             alt=""
           />
         </ProfilePhotoWrapper>
-        <ProfileSummaryWrapper>
+        <ProfileSummaryWrapper
+          data-aos="fade-up"
+          data-aos-delay="150"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in"
+        >
           <SummaryPointWrapper>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt

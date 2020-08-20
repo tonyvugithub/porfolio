@@ -8,10 +8,16 @@ const darkTheme: DefaultTheme = {
   },
   text: {
     main: '',
-    primary: '#14ffec',
-    secondary: '#0d7377',
+    primary: 'rgb(245, 245, 245)',
+    secondary: '#14ffec',
   },
-  background: '#0d7377',
+  background: {
+    profile: '#212121',
+    portfolio: '#212121',
+    about: '',
+    contact: '#212121',
+    footer: '#212121',
+  },
 };
 
 export default darkTheme;

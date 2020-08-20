@@ -12,7 +12,7 @@ const FooterWrapper = styled.div<FooterWrapperProps>`
   left: 0;
   bottom: 0;
   font-size: 1.5em;
-  background: rgb(49, 54, 57);
+  background: ${(p) => p.theme.background.footer};
   padding: 50px 0;
   text-align: center;
   color: rgb(245, 245, 245);

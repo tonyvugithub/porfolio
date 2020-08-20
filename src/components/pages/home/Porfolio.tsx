@@ -8,7 +8,7 @@ interface PortfolioContentWrapperProps {}
 
 const PortfolioWrapper = styled.div<PortfolioWrapperProps>`
   width: 100%;
-  background: white;
+  background: ${(p) => p.theme.background.portfolio};
   padding: 50px 0 100px 0;
 
   h1 {
@@ -65,7 +65,43 @@ const Porfolio = () => {
       liveUrl: 'dasdasda',
       repoUrl: 'dsadadas',
       demoUrl: 'dsadasdas',
-      photoUrl: '/img/nextNews.png',
+      photoUrl: '/img/foodArtist.png',
+      techList: ['Next.js', 'Bootstrap', 'TypeScript', ''],
+    },
+    {
+      title: 'Ng Boostrap Blog',
+      description: 'A Mock Blogging Website',
+      liveUrl: 'dasdasdas',
+      repoUrl: 'dasdasda',
+      demoUrl: 'dsadasdas',
+      photoUrl: '/img/angularBlog.png',
+      techList: ['Next.js', 'Bootstrap', 'TypeScript', ''],
+    },
+    {
+      title: 'Fluttering Weather',
+      description: 'A Mobile Weather Forecast',
+      liveUrl: 'dasdasdas',
+      repoUrl: 'dasdasda',
+      demoUrl: 'dsadasdas',
+      photoUrl: '/img/flutterWeather.png',
+      techList: ['Next.js', 'Bootstrap', 'TypeScript', ''],
+    },
+    {
+      title: 'React Calculator',
+      description: 'A Web-based Calculator',
+      liveUrl: 'dasdasdas',
+      repoUrl: 'dasdasda',
+      demoUrl: 'dsadasdas',
+      photoUrl: '/img/calculator.png',
+      techList: ['Next.js', 'Bootstrap', 'TypeScript', ''],
+    },
+    {
+      title: 'Leave Store',
+      description: 'An E-commerce Store ',
+      liveUrl: 'dasdasdas',
+      repoUrl: 'dasdasda',
+      demoUrl: 'dsadasdas',
+      photoUrl: '/img/eshop.png',
       techList: ['Next.js', 'Bootstrap', 'TypeScript', ''],
     },
     {
@@ -77,31 +113,7 @@ const Porfolio = () => {
       photoUrl: '/img/nextNews.png',
       techList: ['Next.js', 'Bootstrap', 'TypeScript', ''],
     },
-    {
-      title: 'Fluttering Weather',
-      description: 'A Mobile Weather Forecast',
-      liveUrl: 'dasdasdas',
-      repoUrl: 'dasdasda',
-      demoUrl: 'dsadasdas',
-      photoUrl: '/img/nextNews.png',
-      techList: ['Next.js', 'Bootstrap', 'TypeScript', ''],
-    },
   ];
-
-  const [showPortfolio, setShowPortfolio] = useState(false);
-
-  useEffect(() => {
-    function handleScroll() {
-      const yPos = window.scrollY;
-      setShowPortfolio(yPos > 500);
-    }
-
-    window.addEventListener('scroll', handleScroll, false);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll, false);
-    };
-  }, []);
 
   const projectCards = projects.map((project) => (
     <PortfolioCard key={project.title} project={project} />
@@ -110,17 +122,7 @@ const Porfolio = () => {
   return (
     <PortfolioWrapper className="fade-in">
       <h1>{'{ Porfolio }'}</h1>
-      <PortfolioContentWrapper
-        animate={{ opacity: showPortfolio ? 1 : 0 }}
-        initial={{ opacity: 0 }}
-        transition={{
-          duration: 1.5,
-          delay: 0.5,
-          ease: 'easeInOut',
-        }}
-      >
-        {projectCards}
-      </PortfolioContentWrapper>
+      <PortfolioContentWrapper>{projectCards}</PortfolioContentWrapper>
     </PortfolioWrapper>
   );
 };

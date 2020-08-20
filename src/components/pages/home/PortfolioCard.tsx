@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 
 const Card = styled.div`
   width: 100%;
@@ -24,7 +24,7 @@ const CardContent = styled.div`
   border-radius: 7px;
 `;
 
-const Front = styled.div`
+const Front = styled(motion.div)`
   position: absolute;
   height: 100%;
   width: 100%;
@@ -35,7 +35,7 @@ const Front = styled.div`
 `;
 
 const Description = styled.div`
-  background: white;
+  background: rgba(0, 0, 0, 0.7);
   color: rgb(49, 54, 57);
   padding: 15px 0;
   position: absolute;
@@ -43,7 +43,7 @@ const Description = styled.div`
   width: 100%;
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
-  color: grey;
+  color: rgb(245, 245, 245);
 `;
 
 const Back = styled.div`
@@ -75,7 +75,7 @@ const TechItem = styled(motion.div)`
   background: white;
 `;
 
-const ProjectDetailWrapper = styled.div`
+const ProjectDetailWrapper = styled(motion.div)`
   display: grid;
   grid-gap: 5px;
   color: white;
@@ -138,17 +138,18 @@ const LinkDescription = styled.div`
 
 const linkWrapperVariants = {
   start: {
-    width: 0,
     opacity: 0,
+    y: 10,
   },
 
   end: {
-    width: '100%',
     opacity: 1,
+    y: 0,
     transition: {
       duration: 1,
-      delay: 1,
+      delay: 0.5,
       when: 'beforeChildren',
+      ease: 'linear',
     },
   },
 };
@@ -165,12 +166,48 @@ const linkVariants = (timeInterval: number = 0) => {
       opacity: 1,
       transition: {
         duration: 1 + timeInterval,
-        delay: 0.5 + timeInterval,
+        delay: 0.3 + timeInterval,
       },
     },
   };
 };
 
+const techItemVariants = (index: number) => {
+  return {
+    start: {
+      opacity: 0,
+      y: -10,
+    },
+
+    end: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        delay: index * 0.3,
+        ease: 'easeInOut',
+      },
+    },
+
+    out: {
+      opacity: 0,
+    },
+  };
+};
+
+const detailVariants = {
+  start: {
+    opacity: 0,
+  },
+
+  end: {
+    opacity: 1,
+    transition: {
+      delay: 0.5,
+      duration: 1.5,
+    },
+  },
+};
 interface Project {
   title: string;
   description: string;
@@ -181,35 +218,56 @@ interface Project {
   techList: string[];
 }
 
-const PortfolioCard: React.FC<{ project: Project }> = ({ project }) => {
+interface PortfolioCardProps {
+  project: Project;
+}
+
+const PortfolioCard: React.FC<PortfolioCardProps> = ({ project }) => {
   const [linkDesc, setLinkDesc] = useState('');
+  const [showBackAnimation, setShowBackAnimation] = useState(false);
 
   const techItems = project.techList.map((tech: string, index: number) => (
     <TechItem
       key={index}
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.5,
-        delay: index * 0.3,
-        ease: 'easeInOut',
-      }}
+      variants={techItemVariants(index)}
+      initial="start"
+      animate={showBackAnimation ? 'end' : 'start'}
     >
       {tech}
     </TechItem>
   ));
 
   return (
-    <Card key={project.title} className="card">
+    <Card
+      key={project.title}
+      className="card"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      data-aos-delay="150"
+      onMouseLeave={() => setShowBackAnimation(false)}
+      onMouseEnter={() => setShowBackAnimation(true)}
+    >
       <CardContent className="content">
         <Front className="front">
+          <img
+            src={process.env.PUBLIC_URL + project.photoUrl}
+            alt=""
+            width="100%"
+            height="100%"
+            style={{ borderRadius: '7px' }}
+          />
+
           <Description>
             <h2>{project.description}</h2>
           </Description>
         </Front>
         <Back className="back">
           <TechItemWrapper>{techItems}</TechItemWrapper>
-          <ProjectDetailWrapper>
+          <ProjectDetailWrapper
+            variants={detailVariants}
+            initial="start"
+            animate={showBackAnimation ? 'end' : 'start'}
+          >
             <h2>{project.title}</h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
@@ -223,7 +281,7 @@ const PortfolioCard: React.FC<{ project: Project }> = ({ project }) => {
               className="project-link-wrapper"
               variants={linkWrapperVariants}
               initial="start"
-              animate="end"
+              animate={showBackAnimation ? 'end' : 'start'}
             >
               <LinkDescription>{linkDesc}</LinkDescription>
               <div className="links-container">

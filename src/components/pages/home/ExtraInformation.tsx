@@ -137,12 +137,20 @@ const ExtraInformation = () => {
   return (
     <ExtraInformationWrapper>
       <AbouSectionWrapper className="about-section">
-        <h2 className="title">/** About */</h2>
+        <h2 className="title" data-aos="fade-up">
+          /** About */
+        </h2>
         <Link to="/about">
           <motion.div
             className="content about"
+            /*Framer-motion library*/
             variants={contentVariant('0px 0px 8px rgb(49, 54, 57)')}
             whileHover="hover"
+            /*AOS library*/
+            data-aos="fade-up"
+            data-aos-delay="100"
+            data-aos-duration="1500"
+            data-aos-easing="ease-in-out"
           >
             <motion.div
               className="about-text"
@@ -156,14 +164,20 @@ const ExtraInformation = () => {
         </Link>
       </AbouSectionWrapper>
       <ContactSectionWrapper className="contact-section">
-        <h2 className="title">
+        <h2 className="title" data-aos="fade-up">
           Contact (<span style={{ color: 'rgb(49, 54, 57)' }}> Tony </span>)
         </h2>
         <Link to="/contact">
           <motion.div
             className="content contact"
+            /*Framer-motion library*/
             variants={contentVariant('0px 0px 8px rgb(211, 211, 211)')}
             whileHover="hover"
+            /*AOS library*/
+            data-aos="fade-up"
+            data-aos-delay="100"
+            data-aos-duration="1500"
+            data-aos-easing="ease-in-out"
           >
             <motion.div
               className="contact-text"

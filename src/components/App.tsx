@@ -1,9 +1,13 @@
 import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import DarkTheme from 'themes/dark';
 import LightTheme from 'themes/light';
 import PageLayout from './layout/PageLayout';
+
 const LazyHome = lazy(() => import('components/pages/home/Home'));
 const LazyBlog = lazy(() => import('components/pages/blog/Blog'));
 const LazyContact = lazy(() => import('components/pages/contact/Contact'));
@@ -31,8 +35,12 @@ const GlobalStyle = createGlobalStyle`
 
 `;
 
-function App() {
+const App = () => {
   const [theme, setTheme] = useState(LightTheme);
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   return (
     <ThemeProvider
@@ -57,6 +65,6 @@ function App() {
       </BrowserRouter>
     </ThemeProvider>
   );
-}
+};
 
 export default App;

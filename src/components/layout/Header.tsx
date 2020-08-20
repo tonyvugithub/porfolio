@@ -17,7 +17,7 @@ const HeaderWrapper = styled.div<HeaderWrapperProps>`
   top: 0;
   left: 0;
   background: ${(p) => p.theme.palette.primary};
-  border-bottom: 3px solid ${(p) => p.theme.palette.secondary};
+  border-bottom: 3px solid ${(p) => p.theme.text.secondary};
 
   padding: 0 10px;
   height: 60px;
@@ -67,7 +67,7 @@ const NavMenu = styled(motion.nav)<NavMenuProps>`
 `;
 
 const StyledLink = styled(Link)<LinkProps>`
-  color: ${(p) => (p.active ? p.theme.text.primary : p.theme.text.secondary)};
+  color: ${(p) => (p.active ? p.theme.text.secondary : p.theme.text.primary)};
   font-weight: 700;
   height: 100%;
   padding: 4px 5px;

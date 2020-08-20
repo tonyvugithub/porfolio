@@ -15,7 +15,13 @@ declare module 'styled-components' {
       secondary: string;
       warning?: string;
     };
-    background: string;
+    background: {
+      profile: string;
+      portfolio: string;
+      about: string;
+      contact: string;
+      footer: string;
+    };
     toggleTheme?: function;
   }
 }
