@@ -10,8 +10,6 @@ const MobileHamburgerWrapper = styled.div<MobileHamburgerWrapperProps>`
   width: 25px;
   min-width: 25px;
   cursor: pointer;
-  position: absolute;
-  right: 0;
 
   > div {
     height: 3px;

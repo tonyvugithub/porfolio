@@ -35,9 +35,8 @@ const ToggleThemeButtonWrapper = styled(motion.div)<
           );
         `}
 
-  position: absolute;
-  top: 17px;
-  left: 5px;
+  margin: auto 0 auto auto;
+
   @media (min-width: 768px) {
     right: 5px;
     left: initial;

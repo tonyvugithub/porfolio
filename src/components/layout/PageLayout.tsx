@@ -18,7 +18,7 @@ const PayLayoutWrapper = styled.div`
 const Content = styled.main<ContentProps>`
   margin: 0 auto;
   min-height: 100vh;
-  padding: 60px 0 195px 0;
+  padding: 0px 0 195px 0;
 `;
 
 const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {

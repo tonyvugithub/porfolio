@@ -12,17 +12,11 @@ interface NavMenuProps {}
 const HeaderWrapper = styled.div<HeaderWrapperProps>`
   width: 100%;
   position: fixed;
-  overflow: hidden;
   z-index: 1;
   top: 0;
   left: 0;
-  background: ${(p) => p.theme.palette.primary};
-  border-bottom: 3px solid ${(p) => p.theme.text.secondary};
-  box-shadow: 0px 2px 8px
-    ${(p) => (p.theme.id === 'light' ? 'rgba(0, 0, 0, 0.7)' : '#0d7377')};
-
-  padding: 0 10px;
-  height: 60px;
+  background: transparent;
+  height: 100px;
 
   .content-wrapper {
     display: flex;
@@ -31,21 +25,33 @@ const HeaderWrapper = styled.div<HeaderWrapperProps>`
     position: relative;
     margin: 0 auto;
     align-items: center;
+    transition: 0.6s;
+    padding: 0 10px;
 
     .logo {
-      color: ${(p) => p.theme.text.primary};
+      color: white;
       font-weight: bold;
       padding: 5px;
       border: 1px solid ${(p) => p.theme.text.primary};
       border-radius: 5px;
       text-align: center;
-      margin: 0 auto;
 
       @media (min-width: 768px) {
         margin: 0;
         margin-right: 15px;
       }
     }
+  }
+
+  .sticky {
+    background: white;
+    height: 60px;
+  }
+
+  .hamburger-and-toggle-container {
+    margin: auto 0 auto auto;
+    display: flex;
+    gap: 10px;
   }
 `;
 
@@ -69,7 +75,7 @@ const NavMenu = styled(motion.nav)<NavMenuProps>`
 `;
 
 const StyledLink = styled(Link)<LinkProps>`
-  color: ${(p) => (p.active ? p.theme.text.secondary : p.theme.text.primary)};
+  color: ${(p) => (p.active ? p.theme.text.secondary : 'white')};
   font-weight: 700;
   height: 100%;
   padding: 4px 5px;
@@ -86,7 +92,7 @@ const Header: React.FC<{
   return (
     <>
       <HeaderWrapper>
-        <div className="content-wrapper">
+        <div id="header" className="content-wrapper">
           <motion.div
             className="logo"
             initial={{ x: '-100vw' }}
@@ -95,11 +101,7 @@ const Header: React.FC<{
           >
             TONY
           </motion.div>
-          <ToggleThemeButton
-            isDarkTheme={id === 'dark'}
-            onToggle={toggleTheme}
-          />
-          <MobileHamburger openModal={openModal} />
+
           <NavMenu>
             <StyledLink to="/" active={pathname === '/'}>
               <motion.div
@@ -141,6 +143,13 @@ const Header: React.FC<{
               </motion.div>
             </StyledLink>
           </NavMenu>
+          <div className="hamburger-and-toggle-container">
+            <ToggleThemeButton
+              isDarkTheme={id === 'dark'}
+              onToggle={toggleTheme}
+            />
+            <MobileHamburger openModal={openModal} />
+          </div>
         </div>
       </HeaderWrapper>
     </>

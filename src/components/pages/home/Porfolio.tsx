@@ -8,8 +8,9 @@ interface PortfolioContentWrapperProps {}
 
 const PortfolioWrapper = styled.div<PortfolioWrapperProps>`
   width: 100%;
-  background: ${(p) => p.theme.background.portfolio};
+  background: #0d0d0d;
   padding: 50px 0 100px 0;
+  color: white;
 
   ${(p) =>
     p.theme.id === 'dark' &&

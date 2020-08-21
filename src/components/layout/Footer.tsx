@@ -12,7 +12,7 @@ const FooterWrapper = styled.div<FooterWrapperProps>`
   left: 0;
   bottom: 0;
   font-size: 1.5em;
-  background: ${(p) => p.theme.background.footer};
+  background: #0d0d0d;
   padding: 50px 0;
   text-align: center;
   color: rgb(245, 245, 245);
@@ -46,11 +46,11 @@ const iconVariants = {
   hover: {
     scale: [0.9, 1.1],
     textShadow: [
-      '4px 3px #f6416c, -4px -5px rgba(64, 89, 173)',
-      '-4px -5px #f6416c, 4px 5px rgba(64, 89, 173)',
-      '4px -3px #f6416c, -7px 3px rgba(64, 89, 173)',
-      '-7px -3px #f6416c, -4px -3px rgba(64, 89, 173)',
-      '-7px 0 #f6416c, 4px -3px rgba(64, 89, 173)',
+      '4px 3px #e1a87a, -4px -5px rgb(180, 177, 177)',
+      '-4px -5px #e1a87a, 4px 5px rgb(180, 177, 177)',
+      '4px -3px #e1a87a, -7px 3px rgb(180, 177, 177)',
+      '-7px -3px #e1a87a, -4px -3px rgb(180, 177, 177)',
+      '-7px 0 #e1a87a , 4px -3px rgb(180, 177, 177)',
     ],
     transition: {
       duration: 0.3,
@@ -82,6 +82,7 @@ const Footer = () => {
           initial="start"
           whileHover="hover"
           whileTap="tap"
+          title="Linkedin"
         ></motion.i>
         <motion.i
           className="fab fa-github icon"
@@ -89,6 +90,7 @@ const Footer = () => {
           initial="start"
           whileHover="hover"
           whileTap="tap"
+          title="Github"
         ></motion.i>
         <motion.i
           className="fas fa-envelope icon"
@@ -96,6 +98,7 @@ const Footer = () => {
           initial="start"
           whileHover="hover"
           whileTap="tap"
+          title="Email"
         ></motion.i>
       </SocialMediaWrapper>
     </FooterWrapper>

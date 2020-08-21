@@ -74,6 +74,12 @@
   <script>
     AOS.init();
   </script>
+  <script type="text/javascript">
+    window.addEventListener("scroll", function () {
+      const header = document.querySelector("#header");
+      header.classList.toggle("sticky", window.scrollY > 50);
+    })
+  </script>
 </body>
 
 </html>

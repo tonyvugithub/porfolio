@@ -63,7 +63,7 @@ const ExtraInformationWrapper = styled.div<ExtraInformationWrapperProps>`
 const AbouSectionWrapper = styled.div<AboutSectionWrapperProps>`
   height: 500px;
   color: ${(p) => p.theme.text.primary};
-  background: ${(p) => p.theme.background.about};
+  background: #f0f0f0;
   position: relative;
 
   .about {
@@ -88,7 +88,7 @@ const AbouSectionWrapper = styled.div<AboutSectionWrapperProps>`
 
 const ContactSectionWrapper = styled.div<ContactSectionWrapperProps>`
   height: 500px;
-  background: ${(p) => p.theme.background.contact};
+  background: #fff;
   color: rgb(245, 245, 245);
   position: relative;
 
