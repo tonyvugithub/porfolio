@@ -3,7 +3,7 @@ const lightTheme: DefaultTheme = {
   id: 'light',
   palette: {
     primary: 'white',
-    secondary: '#f6416c',
+    secondary: '#e1a87a',
   },
   text: {
     main: '',

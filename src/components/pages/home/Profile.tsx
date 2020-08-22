@@ -6,6 +6,8 @@ interface ProfileWrapperProps {}
 interface ProfileContentWrapperProps {}
 const ProfileWrapper = styled.div<ProfileWrapperProps>`
   width: 100%;
+  height: max(70vh, max-content);
+  min-height: 70vh;
   background: #f0f0f0;
   color: #151515;
   padding: 50px 0;

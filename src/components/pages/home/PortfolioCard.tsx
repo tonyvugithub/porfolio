@@ -35,15 +35,14 @@ const Front = styled(motion.div)`
 `;
 
 const Description = styled.div`
-  background: rgba(0, 0, 0, 0.7);
-  color: rgb(49, 54, 57);
+  background: rgba(13, 13, 13, 0.85);
+  color: #e1a87a;
   padding: 15px 0;
   position: absolute;
   bottom: 0;
   width: 100%;
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
-  color: rgb(245, 245, 245);
 `;
 
 const Back = styled.div`
@@ -55,8 +54,8 @@ const Back = styled.div`
   backface-visibility: hidden;
   padding: 20px;
 
-  background: ${(p) => p.theme.card.primary};
-  color: #f6416c;
+  background: #f0f0f0;
+  color: #151515;
   transform: rotateY(180deg);
 
   display: grid;
@@ -105,7 +104,6 @@ const ProjectLinkWrapper = styled(motion.div)`
   justify-content: flex-end;
 
   padding-top: 10px;
-  border-top: 3px solid rgb(73, 76, 78);
 
   .links-container {
     display: flex;
@@ -133,26 +131,8 @@ const ProjectLink = styled(motion.a)`
 `;
 
 const LinkDescription = styled.div`
-  color: white;
+  color: #151515;
 `;
-
-const linkWrapperVariants = {
-  start: {
-    opacity: 0,
-    y: 10,
-  },
-
-  end: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 1,
-      delay: 0.5,
-      when: 'beforeChildren',
-      ease: 'linear',
-    },
-  },
-};
 
 const linkVariants = (timeInterval: number = 0) => {
   return {
@@ -233,6 +213,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ project }) => {
       variants={techItemVariants(index)}
       initial="start"
       animate={showBackAnimation ? 'end' : 'start'}
+      className="tech-item"
     >
       {tech}
     </TechItem>
@@ -273,12 +254,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ project }) => {
             <p>{project.detail}</p>
           </ProjectDetailWrapper>
           <AnimatePresence exitBeforeEnter>
-            <ProjectLinkWrapper
-              className="project-link-wrapper"
-              variants={linkWrapperVariants}
-              initial="start"
-              animate={showBackAnimation ? 'end' : 'start'}
-            >
+            <ProjectLinkWrapper>
               <LinkDescription>{linkDesc}</LinkDescription>
               <div className="links-container">
                 {project.liveUrl && (

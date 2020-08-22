@@ -35,12 +35,12 @@ const PortfolioContentWrapper = styled(motion.div)<
   padding: 0 10px;
 
   .card:nth-child(even) .back {
-    background: ${(p) => p.theme.card.secondary};
-    color: rgb(64, 89, 173);
+    background: #fff;
+    color: #e1a87a;
   }
 
-  .card:nth-child(even) .back .project-link-wrapper {
-    border-top: 3px solid rgb(241, 166, 15);
+  .card:nth-child(even) .back .tech-item {
+    background: #0d0d0d;
   }
 
   .card:nth-child(even):hover .content {

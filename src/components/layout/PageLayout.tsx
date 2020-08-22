@@ -13,6 +13,20 @@ interface ContentProps {}
 const PayLayoutWrapper = styled.div`
   min-height: 100%;
   position: relative;
+
+  #header.sticky {
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    .nav-menu {
+      a {
+        color: #151515;
+      }
+
+      .active {
+        color: ${(p) => p.theme.palette.secondary};
+      }
+    }
+  }
 `;
 
 const Content = styled.main<ContentProps>`

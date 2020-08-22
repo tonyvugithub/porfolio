@@ -62,12 +62,12 @@ const ExtraInformationWrapper = styled.div<ExtraInformationWrapperProps>`
 
 const AbouSectionWrapper = styled.div<AboutSectionWrapperProps>`
   height: 500px;
-  color: ${(p) => p.theme.text.primary};
+  color: #151515;
   background: #f0f0f0;
   position: relative;
 
   .about {
-    border: 5px solid ${(p) => p.theme.text.primary};
+    border: 5px solid #151515;
     .about-text {
       display: flex;
       align-items: center;
@@ -89,15 +89,15 @@ const AbouSectionWrapper = styled.div<AboutSectionWrapperProps>`
 const ContactSectionWrapper = styled.div<ContactSectionWrapperProps>`
   height: 500px;
   background: #fff;
-  color: rgb(245, 245, 245);
+  color: #151515;
   position: relative;
 
   .contact-name {
-    color: ${(p) => (p.theme.id === 'light' ? 'rgb(49, 54, 57)' : 'grey')};
+    color: #e1a87a;
   }
 
   .contact {
-    border: 5px solid rgb(245, 245, 245);
+    border: 5px solid #151515;
     .contact-text {
       display: flex;
       align-items: center;

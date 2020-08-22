@@ -7,7 +7,8 @@ interface HeroImageWrapperProps {
 }
 const HeroImageWrapper = styled.div<HeroImageWrapperProps>`
   width: 100%;
-  height: 100vh;
+  height: min(100vh, 90vw);
+  min-height: 600px;
 
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)),
     url(${(p) => p.imgUrl});

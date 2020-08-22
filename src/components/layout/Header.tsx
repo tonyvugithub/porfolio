@@ -17,6 +17,7 @@ const HeaderWrapper = styled.div<HeaderWrapperProps>`
   left: 0;
   background: transparent;
   height: 100px;
+  transition: 0.6s;
 
   .content-wrapper {
     display: flex;
@@ -25,7 +26,7 @@ const HeaderWrapper = styled.div<HeaderWrapperProps>`
     position: relative;
     margin: 0 auto;
     align-items: center;
-    transition: 0.6s;
+
     padding: 0 10px;
 
     .logo {
@@ -43,11 +44,6 @@ const HeaderWrapper = styled.div<HeaderWrapperProps>`
     }
   }
 
-  .sticky {
-    background: white;
-    height: 60px;
-  }
-
   .hamburger-and-toggle-container {
     margin: auto 0 auto auto;
     display: flex;
@@ -58,6 +54,10 @@ const HeaderWrapper = styled.div<HeaderWrapperProps>`
 const NavMenu = styled(motion.nav)<NavMenuProps>`
   position: absolute;
   display: none;
+
+  .active {
+    color: ${(p) => p.theme.palette.secondary};
+  }
 
   @media (min-width: 768px) {
     display: flex;
@@ -75,12 +75,12 @@ const NavMenu = styled(motion.nav)<NavMenuProps>`
 `;
 
 const StyledLink = styled(Link)<LinkProps>`
-  color: ${(p) => (p.active ? p.theme.text.secondary : 'white')};
   font-weight: 700;
   height: 100%;
   padding: 4px 5px;
   min-width: 50px;
   text-align: center;
+  color: white;
 `;
 
 const Header: React.FC<{
@@ -91,8 +91,8 @@ const Header: React.FC<{
 
   return (
     <>
-      <HeaderWrapper>
-        <div id="header" className="content-wrapper">
+      <HeaderWrapper id="header">
+        <div className="content-wrapper">
           <motion.div
             className="logo"
             initial={{ x: '-100vw' }}
@@ -102,9 +102,9 @@ const Header: React.FC<{
             TONY
           </motion.div>
 
-          <NavMenu>
-            <StyledLink to="/" active={pathname === '/'}>
-              <motion.div
+          <NavMenu className="nav-menu">
+            <StyledLink className={pathname === '/' ? 'active' : ''} to="/">
+              {/* <motion.div
                 initial={{ y: -150 }}
                 animate={{ y: 0 }}
                 transition={{
@@ -112,12 +112,15 @@ const Header: React.FC<{
                   type: 'tween',
                   duration: 1,
                 }}
-              >
-                Home
-              </motion.div>
+              > */}
+              Home
+              {/* </motion.div> */}
             </StyledLink>
-            <StyledLink to="/blog" active={pathname === '/blog'}>
-              <motion.div
+            <StyledLink
+              to="/blog"
+              className={pathname === '/blog' ? 'active' : ''}
+            >
+              {/* <motion.div
                 initial={{ y: -150 }}
                 animate={{ y: 0 }}
                 transition={{
@@ -125,12 +128,15 @@ const Header: React.FC<{
                   type: 'tween',
                   duration: 1,
                 }}
-              >
-                Blog
-              </motion.div>
+              > */}
+              Blog
+              {/* </motion.div> */}
             </StyledLink>
-            <StyledLink to="/contact" active={pathname === '/contact'}>
-              <motion.div
+            <StyledLink
+              to="/contact"
+              className={pathname === '/contact' ? 'active' : ''}
+            >
+              {/* <motion.div
                 initial={{ y: -150 }}
                 animate={{ y: 0 }}
                 transition={{
@@ -138,9 +144,9 @@ const Header: React.FC<{
                   type: 'tween',
                   duration: 1,
                 }}
-              >
-                Contact
-              </motion.div>
+              > */}
+              Contact
+              {/*  </motion.div> */}
             </StyledLink>
           </NavMenu>
           <div className="hamburger-and-toggle-container">

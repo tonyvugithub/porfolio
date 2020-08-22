@@ -55,7 +55,7 @@ const BackDrop = styled.div<BackDropProps>`
 `;
 
 const StyledLink = styled(Link)<LinkProps>`
-  color: ${(p) => (p.active ? p.theme.text.primary : p.theme.text.secondary)};
+  color: white;
   font-weight: 700;
   height: 100%;
   padding: 4px 5px;
@@ -85,7 +85,7 @@ const Modal: React.FC<ModalProps> = ({ show, closeModal }) => {
           whileHover="scaleUp"
           whileTap="scaleUp"
         >
-          <StyledLink to="/" active={pathname === '/'}>
+          <StyledLink to="/" className={pathname === '/' ? 'active' : ''}>
             Home
           </StyledLink>
         </motion.div>
@@ -95,7 +95,10 @@ const Modal: React.FC<ModalProps> = ({ show, closeModal }) => {
           whileHover="scaleUp"
           whileTap="scaleUp"
         >
-          <StyledLink to="/blog" active={pathname === '/blog'}>
+          <StyledLink
+            to="/blog"
+            className={pathname === '/blog' ? 'active' : ''}
+          >
             Blog
           </StyledLink>
         </motion.div>
@@ -105,7 +108,10 @@ const Modal: React.FC<ModalProps> = ({ show, closeModal }) => {
           whileHover="scaleUp"
           whileTap="scaleUp"
         >
-          <StyledLink to="/contact" active={pathname === '/contact'}>
+          <StyledLink
+            to="/contact"
+            className={pathname === '/contact' ? 'active' : ''}
+          >
             Contact
           </StyledLink>
         </motion.div>
