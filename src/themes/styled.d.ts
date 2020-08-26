@@ -5,7 +5,7 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     id: string;
-    palette: {
+    /* palette: {
       primary: string;
       secondary: string;
     };
@@ -25,7 +25,14 @@ declare module 'styled-components' {
     card: {
       primary: string;
       secondary: string;
-    };
+    }; */
     toggleTheme?: function;
+    breakpoints: {
+      xs: number;
+      sm: number;
+      md: number;
+      lg: number;
+      xl: number;
+    };
   }
 }

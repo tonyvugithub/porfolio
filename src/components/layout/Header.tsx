@@ -1,10 +1,17 @@
-import React, { useContext, Dispatch, SetStateAction } from 'react';
+import React, {
+  useContext,
+  Dispatch,
+  SetStateAction,
+  useState,
+  useEffect,
+} from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import { motion } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import MobileHamburger from 'components/layout/mobile/MobileHamburger';
 import ToggleThemeButton from 'components/common/ToggleThemeButton';
 import Link, { LinkProps } from 'components/common/Link';
+import Logo from 'components/common/Logo';
 
 interface HeaderWrapperProps {}
 interface NavMenuProps {}
@@ -21,33 +28,39 @@ const HeaderWrapper = styled.div<HeaderWrapperProps>`
 
   .content-wrapper {
     display: flex;
-    height: 100%;
     max-width: 1200px;
     position: relative;
     margin: 0 auto;
     align-items: center;
-
+    height: 100%;
     padding: 0 10px;
 
     .logo {
       color: white;
       font-weight: bold;
-      padding: 5px;
-      border: 1px solid ${(p) => p.theme.text.primary};
-      border-radius: 5px;
-      text-align: center;
-
-      @media (min-width: 768px) {
-        margin: 0;
-        margin-right: 15px;
+      border-radius: 50%;
+      svg {
+        border-radius: 50%;
       }
     }
-  }
 
-  .hamburger-and-toggle-container {
-    margin: auto 0 auto auto;
-    display: flex;
-    gap: 10px;
+    .hamburger-and-toggle-container {
+      margin: 10px 0 auto auto;
+      display: flex;
+      gap: 10px;
+    }
+
+    @media (min-width: 768px) {
+      align-items: start;
+      .logo {
+        margin: 0;
+        margin-right: 40px;
+        padding-top: 10px;
+      }
+      .hamburger-and-toggle-container {
+        margin: auto 0 auto auto;
+      }
+    }
   }
 `;
 
@@ -56,18 +69,13 @@ const NavMenu = styled(motion.nav)<NavMenuProps>`
   display: none;
 
   .active {
-    color: ${(p) => p.theme.palette.secondary};
+    color: red;
   }
 
   @media (min-width: 768px) {
     display: flex;
+    margin-top: 35px;
     background: none;
-
-    /*These are required for it to shift to the right */
-    /* top: initial;
-    left: initial;
-    width: initial;
-    margin: auto 0 auto auto; */
 
     position: relative;
     border-bottom: none;
@@ -83,25 +91,35 @@ const StyledLink = styled(Link)<LinkProps>`
   color: white;
 `;
 
+const LogoWrapper = styled.div`
+  position: relative;
+`;
+
 const Header: React.FC<{
   openModal: Dispatch<SetStateAction<boolean>>;
 }> = ({ openModal }) => {
   const { pathname } = useLocation();
   const { id, toggleTheme } = useContext(ThemeContext);
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    window.addEventListener('resize', () =>
+      setViewportWidth(window.innerWidth)
+    );
+    return () => {
+      window.removeEventListener('resize', () =>
+        setViewportWidth(window.innerWidth)
+      );
+    };
+  }, []);
 
   return (
     <>
       <HeaderWrapper id="header">
         <div className="content-wrapper">
-          <motion.div
-            className="logo"
-            initial={{ x: '-100vw' }}
-            animate={{ x: 0 }}
-            transition={{ type: 'spring', stiffness: 50 }}
-          >
-            TONY
-          </motion.div>
-
+          <LogoWrapper className="logo">
+            {viewportWidth >= 768 ? <Logo /> : <Logo width={80} height={80} />}
+          </LogoWrapper>
           <NavMenu className="nav-menu">
             <StyledLink className={pathname === '/' ? 'active' : ''} to="/">
               {/* <motion.div
@@ -154,7 +172,7 @@ const Header: React.FC<{
               isDarkTheme={id === 'dark'}
               onToggle={toggleTheme}
             />
-            <MobileHamburger openModal={openModal} />
+            <MobileHamburger openModal={openModal} className="hamburger" />
           </div>
         </div>
       </HeaderWrapper>

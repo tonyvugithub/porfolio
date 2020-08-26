@@ -17,13 +17,23 @@ const PayLayoutWrapper = styled.div`
   #header.sticky {
     background: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    .logo {
+      svg {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 6px 8px 2px #ffd700;
+      }
+    }
     .nav-menu {
       a {
         color: #151515;
       }
 
       .active {
-        color: ${(p) => p.theme.palette.secondary};
+        color: red;
+      }
+    }
+    .hamburger {
+      > div {
+        background: #151515;
       }
     }
   }

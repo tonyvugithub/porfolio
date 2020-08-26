@@ -21,18 +21,10 @@ const ToggleThemeButtonWrapper = styled(motion.div)<
   ${(p) =>
     p.theme.id === 'light'
       ? css`
-          background-image: linear-gradient(
-            to right,
-            white,
-            ${(p) => p.theme.text.primary}
-          );
+          background-image: linear-gradient(to right, white, black);
         `
       : css`
-          background-image: linear-gradient(
-            to left,
-            white,
-            ${(p) => p.theme.text.primary}
-          );
+          background-image: linear-gradient(to left, white, black);
         `}
 
   margin: auto 0 auto auto;
@@ -49,7 +41,7 @@ const Notch = styled.div<NotchProps>`
   border: 1px solid #eee;
   border-radius: 50%;
   margin-top: 1px;
-  background: ${(p) => p.theme.palette.secondary};
+  background: yellow;
   transition: transform 100ms linear;
   transform: translateX(${(p) => (p.isDarkTheme ? '26px' : '1px')});
 `;
@@ -61,8 +53,8 @@ const ToggleThemeButton: React.FC<ToggleThemeButtonProps> = ({
   return (
     <ToggleThemeButtonWrapper
       onClick={onToggle}
-      initial={{ x: '100vw' }}
-      animate={{ x: 0 }}
+      initial={{ y: '-10px', opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
       transition={{ delay: 1, type: 'spring', stiffness: 40 }}
     >
       <Notch isDarkTheme={isDarkTheme} />

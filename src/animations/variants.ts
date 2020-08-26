@@ -9,8 +9,7 @@ export const rotateXInfinity = (
       transition: {
         duration: duration,
         yoyo: Infinity,
-        ease: ease,
-      },
+        ease: ease,      },
     },
   };
 };

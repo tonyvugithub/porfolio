@@ -4,6 +4,7 @@ import styled from 'styled-components';
 interface MobileHamburgerWrapperProps {}
 interface MobileHamburgerProps {
   openModal: Dispatch<SetStateAction<boolean>>;
+  className: string;
 }
 
 const MobileHamburgerWrapper = styled.div<MobileHamburgerWrapperProps>`
@@ -23,9 +24,15 @@ const MobileHamburgerWrapper = styled.div<MobileHamburgerWrapperProps>`
   }
 `;
 
-const MobileHamburger: React.FC<MobileHamburgerProps> = ({ openModal }) => {
+const MobileHamburger: React.FC<MobileHamburgerProps> = ({
+  openModal,
+  className,
+}) => {
   return (
-    <MobileHamburgerWrapper onClick={() => openModal(true)}>
+    <MobileHamburgerWrapper
+      onClick={() => openModal(true)}
+      className={className}
+    >
       <div />
       <div />
       <div />

@@ -20,7 +20,7 @@ const FooterWrapper = styled.div<FooterWrapperProps>`
   ${(p) =>
     p.theme.id === 'dark' &&
     css`
-      border-top: 2px solid ${p.theme.text.secondary};
+      border-top: 2px solid white;
     `}
 `;
 

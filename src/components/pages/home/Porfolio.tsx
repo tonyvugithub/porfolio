@@ -15,7 +15,7 @@ const PortfolioWrapper = styled.div<PortfolioWrapperProps>`
   ${(p) =>
     p.theme.id === 'dark' &&
     css`
-      border-top: 2px solid ${p.theme.text.secondary};
+      border-top: 2px solid white;
       color: rgb(245, 245, 245);
     `};
 
@@ -41,6 +41,14 @@ const PortfolioContentWrapper = styled(motion.div)<
 
   .card:nth-child(even) .back .tech-item {
     background: #0d0d0d;
+  }
+
+  .card:nth-child(even) .back .project-detail {
+    h2,
+    p {
+      background: rgba(0, 0, 0, 0.7);
+      color: #e1a87a;
+    }
   }
 
   .card:nth-child(even):hover .content {

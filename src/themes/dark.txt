@@ -1,4 +1,4 @@
-import { DefaultTheme } from 'styled-components';
+/* import { DefaultTheme } from 'styled-components';
 
 const darkTheme: DefaultTheme = {
   id: 'dark',
@@ -7,7 +7,7 @@ const darkTheme: DefaultTheme = {
     secondary: '#0d7377',
   },
   text: {
-    main: '',
+    main: '',0
     primary: 'rgb(245, 245, 245)',
     secondary: '#14ffec',
   },
@@ -24,4 +24,4 @@ const darkTheme: DefaultTheme = {
   },
 };
 
-export default darkTheme;
+export default darkTheme; */

@@ -249,6 +249,7 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ project }) => {
             variants={detailVariants}
             initial="start"
             animate={showBackAnimation ? 'end' : 'start'}
+            className="project-detail"
           >
             <h2>{project.title}</h2>
             <p>{project.detail}</p>

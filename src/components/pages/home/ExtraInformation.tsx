@@ -15,7 +15,7 @@ const ExtraInformationWrapper = styled.div<ExtraInformationWrapperProps>`
   ${(p) =>
     p.theme.id === 'dark' &&
     css`
-      border-top: 2px solid ${p.theme.text.secondary};
+      border-top: 2px solid white;
     `}
 
   a {
