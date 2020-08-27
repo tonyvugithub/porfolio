@@ -12,16 +12,10 @@ const FooterWrapper = styled.div<FooterWrapperProps>`
   left: 0;
   bottom: 0;
   font-size: 1.5em;
-  background: #0d0d0d;
+  background: ${(p) => p.theme.palette.background.footer};
   padding: 50px 0;
   text-align: center;
-  color: rgb(245, 245, 245);
-
-  ${(p) =>
-    p.theme.id === 'dark' &&
-    css`
-      border-top: 2px solid white;
-    `}
+  color: ${(p) => p.theme.palette.text.secondary};
 `;
 
 const CopyRight = styled.p<CopyRightProps>``;

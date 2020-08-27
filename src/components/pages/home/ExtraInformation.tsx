@@ -12,12 +12,6 @@ const ExtraInformationWrapper = styled.div<ExtraInformationWrapperProps>`
   display: flex;
   flex-direction: column;
 
-  ${(p) =>
-    p.theme.id === 'dark' &&
-    css`
-      border-top: 2px solid white;
-    `}
-
   a {
     color: inherit;
   }
@@ -46,6 +40,7 @@ const ExtraInformationWrapper = styled.div<ExtraInformationWrapperProps>`
     @media (min-width: 768px) {
       min-width: 80%;
     }
+
     @media (min-width: 1000px) {
       min-width: 60%;
     }
@@ -62,12 +57,12 @@ const ExtraInformationWrapper = styled.div<ExtraInformationWrapperProps>`
 
 const AbouSectionWrapper = styled.div<AboutSectionWrapperProps>`
   height: 500px;
-  color: #151515;
-  background: #f0f0f0;
+  color: ${(p) => p.theme.palette.text.primary};
+  background: ${(p) => p.theme.palette.background.about};
   position: relative;
 
   .about {
-    border: 5px solid #151515;
+    border: 5px solid ${(p) => p.theme.palette.text.primary};
     .about-text {
       display: flex;
       align-items: center;
@@ -88,16 +83,16 @@ const AbouSectionWrapper = styled.div<AboutSectionWrapperProps>`
 
 const ContactSectionWrapper = styled.div<ContactSectionWrapperProps>`
   height: 500px;
-  background: #fff;
-  color: #151515;
+  background: ${(p) => p.theme.palette.background.contact};
+  color: ${(p) => p.theme.palette.text.primary};
   position: relative;
 
   .contact-name {
-    color: #e1a87a;
+    color: ${(p) => p.theme.palette.text.accent};
   }
 
   .contact {
-    border: 5px solid #151515;
+    border: 5px solid ${(p) => p.theme.palette.text.primary};
     .contact-text {
       display: flex;
       align-items: center;
@@ -113,14 +108,6 @@ const ContactSectionWrapper = styled.div<ContactSectionWrapperProps>`
 
   @media (min-width: 768px) {
     flex: 1;
-  }
-
-  @media (max-width: 767px) {
-    ${(p) =>
-      p.theme.id === 'dark' &&
-      css`
-        border-top: 2px solid #14ffec;
-      `}
   }
 `;
 

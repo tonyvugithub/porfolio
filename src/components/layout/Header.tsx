@@ -31,14 +31,16 @@ const HeaderWrapper = styled.div<HeaderWrapperProps>`
     max-width: 1200px;
     position: relative;
     margin: 0 auto;
-    align-items: center;
+    justify-content: center;
     height: 100%;
     padding: 0 10px;
 
     .logo {
-      color: white;
       font-weight: bold;
       border-radius: 50%;
+      display: flex;
+      align-items: center;
+
       svg {
         border-radius: 50%;
       }
@@ -51,11 +53,11 @@ const HeaderWrapper = styled.div<HeaderWrapperProps>`
     }
 
     @media (min-width: 768px) {
-      align-items: start;
       .logo {
         margin: 0;
         margin-right: 40px;
         padding-top: 10px;
+        align-items: flex-start;
       }
       .hamburger-and-toggle-container {
         margin: auto 0 auto auto;
@@ -68,27 +70,28 @@ const NavMenu = styled(motion.nav)<NavMenuProps>`
   position: absolute;
   display: none;
 
-  .active {
-    color: red;
+  .nav-link.active,
+  .nav-link:focus,
+  .nav-link:hover {
+    color: ${(p) => p.theme.palette.text.highlight};
   }
 
   @media (min-width: 768px) {
     display: flex;
-    margin-top: 35px;
+    align-items: center;
+    height: 100%;
     background: none;
-
     position: relative;
-    border-bottom: none;
   }
 `;
 
 const StyledLink = styled(Link)<LinkProps>`
   font-weight: 700;
-  height: 100%;
-  padding: 4px 5px;
+  padding: 4px 10px;
   min-width: 50px;
   text-align: center;
-  color: white;
+  color: ${(p) => p.theme.palette.text.secondary};
+  font-size: 1.2rem;
 `;
 
 const LogoWrapper = styled.div`
@@ -121,7 +124,10 @@ const Header: React.FC<{
             {viewportWidth >= 768 ? <Logo /> : <Logo width={80} height={80} />}
           </LogoWrapper>
           <NavMenu className="nav-menu">
-            <StyledLink className={pathname === '/' ? 'active' : ''} to="/">
+            <StyledLink
+              className={pathname === '/' ? 'nav-link active' : 'nav-link'}
+              to="/"
+            >
               {/* <motion.div
                 initial={{ y: -150 }}
                 animate={{ y: 0 }}
@@ -136,7 +142,7 @@ const Header: React.FC<{
             </StyledLink>
             <StyledLink
               to="/blog"
-              className={pathname === '/blog' ? 'active' : ''}
+              className={pathname === '/blog' ? 'nav-link active' : 'nav-link'}
             >
               {/* <motion.div
                 initial={{ y: -150 }}
@@ -152,7 +158,9 @@ const Header: React.FC<{
             </StyledLink>
             <StyledLink
               to="/contact"
-              className={pathname === '/contact' ? 'active' : ''}
+              className={
+                pathname === '/contact' ? 'nav-link active' : 'nav-link'
+              }
             >
               {/* <motion.div
                 initial={{ y: -150 }}

@@ -2,27 +2,29 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 :root {
-  @media screen and (min-width: ${(p) =>
+  font-size: 62.5%;
+
+  @media only screen and (min-width: ${(p) =>
     p.theme.breakpoints.xs + 'px'}) and (max-width: ${(p) =>
   p.theme.breakpoints.sm - 1 + 'px'}) {
     font-size: 75%; /* 16px => 12px */
   }
-  @media screen and (min-width: ${(p) =>
-    p.theme.breakpoints.sm}) and (max-width: ${(p) =>
+  @media only screen and (min-width: ${(p) =>
+    p.theme.breakpoints.sm + 'px'}) and (max-width: ${(p) =>
   p.theme.breakpoints.md - 1 + 'px'}){
     font-size: 81.25%; /* 16px => 13px */
   }
-  @media screen and (min-width: ${(p) =>
-    p.theme.breakpoints.md}) and (max-width: ${(p) =>
+  @media only screen and (min-width: ${(p) =>
+    p.theme.breakpoints.md + 'px'}) and (max-width: ${(p) =>
   p.theme.breakpoints.lg - 1 + 'px'}){
     font-size: 87.5%; /* 16px => 14px */
   }
-  @media screen and (min-width: ${(p) =>
-    p.theme.breakpoints.lg}) and (max-width: ${(p) =>
+  @media only screen and (min-width: ${(p) =>
+    p.theme.breakpoints.lg + 'px'}) and (max-width: ${(p) =>
   p.theme.breakpoints.xl - 1 + 'px'}){
     font-size: 93.75%; /* 16px => 15px */
   }
-  @media screen and (min-width: ${(p) => p.theme.breakpoints.xl + 'px'}) {
+  @media only screen and (min-width: ${(p) => p.theme.breakpoints.xl + 'px'}) {
     font-size: 100%; /* 16px => 16px */
   }
 }

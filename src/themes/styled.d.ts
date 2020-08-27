@@ -5,27 +5,23 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     id: string;
-    /* palette: {
-      primary: string;
-      secondary: string;
+    palette: {
+      text: {
+        primary: string;
+        secondary: string;
+        accent: string;
+        highlight: string;
+      };
+
+      background: {
+        header: string;
+        profile: string;
+        portfolio: string;
+        about: string;
+        contact: string;
+        footer: string;
+      };
     };
-    text: {
-      main: string;
-      primary: string;
-      secondary: string;
-      warning?: string;
-    };
-    background: {
-      profile: string;
-      portfolio: string;
-      about: string;
-      contact: string;
-      footer: string;
-    };
-    card: {
-      primary: string;
-      secondary: string;
-    }; */
     toggleTheme?: function;
     breakpoints: {
       xs: number;

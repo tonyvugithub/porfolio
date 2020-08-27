@@ -5,7 +5,7 @@ import { GlobalStyle } from 'themes/GlobalStyle.theme';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-/* import DarkTheme from 'themes/dark.txt'; */
+import DarkTheme from 'themes/dark';
 import LightTheme from 'themes/light';
 import PageLayout from './layout/PageLayout';
 
@@ -25,7 +25,7 @@ const App = () => {
       theme={{
         ...theme,
         toggleTheme: () => {
-          setTheme((state) => (state.id === 'light' ? LightTheme : LightTheme));
+          setTheme((state) => (state.id === 'light' ? DarkTheme : LightTheme));
         },
       }}
     >

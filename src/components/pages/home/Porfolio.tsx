@@ -8,16 +8,9 @@ interface PortfolioContentWrapperProps {}
 
 const PortfolioWrapper = styled.div<PortfolioWrapperProps>`
   width: 100%;
-  background: #0d0d0d;
+  background: ${(p) => p.theme.palette.background.portfolio};
   padding: 50px 0 100px 0;
-  color: white;
-
-  ${(p) =>
-    p.theme.id === 'dark' &&
-    css`
-      border-top: 2px solid white;
-      color: rgb(245, 245, 245);
-    `};
+  color: ${(p) => p.theme.palette.text.secondary};
 
   h1 {
     margin-bottom: 50px;

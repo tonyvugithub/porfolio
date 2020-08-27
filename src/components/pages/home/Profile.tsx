@@ -8,8 +8,8 @@ const ProfileWrapper = styled.div<ProfileWrapperProps>`
   width: 100%;
   height: max(70vh, max-content);
   min-height: 70vh;
-  background: #f0f0f0;
-  color: #151515;
+  background: ${(p) => p.theme.palette.background.profile};
+  color: ${(p) => p.theme.palette.text.primary};
   padding: 50px 0;
   h1 {
     margin-bottom: 50px;
@@ -21,6 +21,7 @@ const ProfileContentWrapper = styled(motion.div)<ProfileContentWrapperProps>`
   padding: 0 10px;
   flex-direction: column;
   gap: 20px;
+
   @media (min-width: 768px) {
     max-width: 1200px;
     flex-direction: row;
@@ -31,7 +32,7 @@ const ProfileContentWrapper = styled(motion.div)<ProfileContentWrapperProps>`
 const ProfilePhotoWrapper = styled(motion.div)`
   margin: 0 auto;
   width: min(300px, 90vw);
-  height: width;
+  height: auto;
   border-radius: 50%;
 
   img {
@@ -49,7 +50,9 @@ const ProfileSummaryWrapper = styled.div`
   text-align: start;
 `;
 
-const SummaryPointWrapper = styled.div``;
+const SummaryPointWrapper = styled.div`
+  font-size: inherit;
+`;
 
 const Profile = () => {
   return (

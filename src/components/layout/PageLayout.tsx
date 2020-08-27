@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Header from 'components/layout/Header';
 import Footer from 'components/layout/Footer';
 import Modal from 'components/layout/mobile/Modal';
@@ -15,7 +15,7 @@ const PayLayoutWrapper = styled.div`
   position: relative;
 
   #header.sticky {
-    background: white;
+    background: ${(p) => p.theme.palette.background.header};
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
     .logo {
       svg {
@@ -24,11 +24,24 @@ const PayLayoutWrapper = styled.div`
     }
     .nav-menu {
       a {
-        color: #151515;
+        color: ${(p) => p.theme.palette.text.primary};
+
+        ${(p) =>
+          p.theme.id === 'dark' &&
+          css`
+            color: ${p.theme.palette.text.primary};
+          `}
       }
 
-      .active {
-        color: red;
+      a.active,
+      a:focus,
+      a:hover {
+        color: ${(p) => p.theme.palette.text.highlight};
+        ${(p) =>
+          p.theme.id === 'dark' &&
+          css`
+            color: ${p.theme.palette.text.secondary};
+          `}
       }
     }
     .hamburger {
