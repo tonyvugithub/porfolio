@@ -1,12 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-const BlogWrapper = styled.div``;
+const BlogWrapper = styled(motion.div)`
+  padding-top: 100px;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    max-width: 1200px;
+  }
+`;
 
 const Blog = () => {
   return (
     <BlogWrapper>
-      <h1>Blog</h1>
+      <div>This feature is in development</div>
     </BlogWrapper>
   );
 };

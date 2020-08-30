@@ -5,14 +5,22 @@ import HeroImage from './HeroImage';
 import Profile from './Profile';
 import Porfolio from './Porfolio';
 import ExtraInformation from './ExtraInformation';
+import { motion } from 'framer-motion';
 
-const HomeWrapper = styled.div`
+const HomeWrapper = styled(motion.div)`
   text-align: center;
 `;
 
 const Home = () => {
   return (
-    <HomeWrapper>
+    <HomeWrapper
+      exit={{
+        x: '-100vw',
+        transition: {
+          ease: 'easeInOut',
+        },
+      }}
+    >
       <HeroImage />
       <Profile />
       <Porfolio />

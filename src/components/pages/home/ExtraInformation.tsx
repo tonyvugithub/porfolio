@@ -1,7 +1,8 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Contact from './contact/Contact';
+import About from './about/About';
 
 interface ExtraInformationWrapperProps {}
 interface AboutSectionWrapperProps {}
@@ -55,7 +56,7 @@ const ExtraInformationWrapper = styled.div<ExtraInformationWrapperProps>`
   }
 `;
 
-const AbouSectionWrapper = styled.div<AboutSectionWrapperProps>`
+const AboutSectionWrapper = styled.div<AboutSectionWrapperProps>`
   height: 500px;
   color: ${(p) => p.theme.palette.text.primary};
   background: ${(p) => p.theme.palette.background.about};
@@ -113,6 +114,16 @@ const ContactSectionWrapper = styled.div<ContactSectionWrapperProps>`
 
 const contentVariant = (shadow: string) => {
   return {
+    start: {
+      x: 0,
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        duration: 1,
+        ease: 'easeInOut',
+      },
+    },
     hover: {
       borderRadius: 100,
       textShadow: shadow,
@@ -139,13 +150,22 @@ const textVariants = {
 };
 
 const ExtraInformation = () => {
-  return (
-    <ExtraInformationWrapper>
-      <AbouSectionWrapper className="about-section">
-        <h2 className="title" data-aos="fade-up">
-          /** About */
-        </h2>
-        <Link to="/about">
+  const [showContact, setShowContact] = useState(true);
+  const [showAbout, setShowAbout] = useState(false);
+
+  let extraInformationContent = null;
+
+  if (showContact) {
+    extraInformationContent = <Contact showContact={setShowContact} />;
+  } else if (showAbout) {
+    extraInformationContent = <About showAbout={setShowAbout} />;
+  } else {
+    extraInformationContent = (
+      <>
+        <AboutSectionWrapper className="about-section">
+          <h2 className="title" data-aos="fade-up" data-aos-duration="1500">
+            /** About */
+          </h2>
           <motion.div
             className="content about"
             /*Framer-motion library*/
@@ -156,6 +176,7 @@ const ExtraInformation = () => {
             data-aos-delay="100"
             data-aos-duration="1500"
             data-aos-easing="ease-in-out"
+            onClick={() => setShowAbout(true)}
           >
             <motion.div
               className="about-text"
@@ -166,13 +187,11 @@ const ExtraInformation = () => {
               About Me
             </motion.div>
           </motion.div>
-        </Link>
-      </AbouSectionWrapper>
-      <ContactSectionWrapper className="contact-section">
-        <h2 className="title" data-aos="fade-up">
-          Contact (<span className="contact-name"> Tony </span>)
-        </h2>
-        <Link to="/contact">
+        </AboutSectionWrapper>
+        <ContactSectionWrapper className="contact-section">
+          <h2 className="title" data-aos="fade-up" data-aos-duration="1500">
+            Contact (<span className="contact-name"> Tony </span>)
+          </h2>
           <motion.div
             className="content contact"
             /*Framer-motion library*/
@@ -183,6 +202,7 @@ const ExtraInformation = () => {
             data-aos-delay="100"
             data-aos-duration="1500"
             data-aos-easing="ease-in-out"
+            onClick={() => setShowContact(true)}
           >
             <motion.div
               className="contact-text"
@@ -193,9 +213,13 @@ const ExtraInformation = () => {
               Contact Me
             </motion.div>
           </motion.div>
-        </Link>
-      </ContactSectionWrapper>
-    </ExtraInformationWrapper>
+        </ContactSectionWrapper>
+      </>
+    );
+  }
+
+  return (
+    <ExtraInformationWrapper>{extraInformationContent}</ExtraInformationWrapper>
   );
 };
 

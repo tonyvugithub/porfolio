@@ -1,7 +1,9 @@
 import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+import { AnimatePresence } from 'framer-motion';
 import { GlobalStyle } from 'themes/GlobalStyle.theme';
+//AOS library
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -11,7 +13,6 @@ import PageLayout from './layout/PageLayout';
 
 const LazyHome = lazy(() => import('components/pages/home/Home'));
 const LazyBlog = lazy(() => import('components/pages/blog/Blog'));
-const LazyContact = lazy(() => import('components/pages/contact/Contact'));
 
 const App = () => {
   const [theme, setTheme] = useState(LightTheme);
@@ -33,11 +34,12 @@ const App = () => {
       <BrowserRouter>
         <PageLayout>
           <Suspense fallback={<div>Loading...</div>}>
-            <Switch>
-              <Route path="/blog" component={LazyBlog} />
-              <Route path="/contact" component={LazyContact} />
-              <Route exact path="/" component={LazyHome} />
-            </Switch>
+            <AnimatePresence exitBeforeEnter>
+              <Switch>
+                <Route path="/blog" component={LazyBlog} />
+                <Route exact path="/" component={LazyHome} />
+              </Switch>
+            </AnimatePresence>
           </Suspense>
         </PageLayout>
       </BrowserRouter>
