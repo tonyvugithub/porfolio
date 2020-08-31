@@ -10,6 +10,7 @@ interface ContactSectionWrapperProps {}
 
 const ExtraInformationWrapper = styled.div<ExtraInformationWrapperProps>`
   width: 100%;
+  height: 500px;
   display: flex;
   flex-direction: column;
 
@@ -56,7 +57,7 @@ const ExtraInformationWrapper = styled.div<ExtraInformationWrapperProps>`
   }
 `;
 
-const AboutSectionWrapper = styled.div<AboutSectionWrapperProps>`
+const AboutSectionWrapper = styled(motion.div)<AboutSectionWrapperProps>`
   height: 500px;
   color: ${(p) => p.theme.palette.text.primary};
   background: ${(p) => p.theme.palette.background.about};
@@ -82,7 +83,7 @@ const AboutSectionWrapper = styled.div<AboutSectionWrapperProps>`
   }
 `;
 
-const ContactSectionWrapper = styled.div<ContactSectionWrapperProps>`
+const ContactSectionWrapper = styled(motion.div)<ContactSectionWrapperProps>`
   height: 500px;
   background: ${(p) => p.theme.palette.background.contact};
   color: ${(p) => p.theme.palette.text.primary};
@@ -152,18 +153,28 @@ const textVariants = {
 const ExtraInformation = () => {
   const [showContact, setShowContact] = useState(true);
   const [showAbout, setShowAbout] = useState(false);
-
-  let extraInformationContent = null;
-
+  let extraInformationContent;
   if (showContact) {
-    extraInformationContent = <Contact showContact={setShowContact} />;
+    extraInformationContent = (
+      <Contact showContact={setShowContact} showAbout={setShowAbout} />
+    );
   } else if (showAbout) {
     extraInformationContent = <About showAbout={setShowAbout} />;
   } else {
     extraInformationContent = (
       <>
-        <AboutSectionWrapper className="about-section">
-          <h2 className="title" data-aos="fade-up" data-aos-duration="1500">
+        <AboutSectionWrapper
+          key="about"
+          className="about-section"
+          /*AOS library*/
+          data-aos="fade-in"
+          data-aos-delay="200"
+          data-aos-duration="1500"
+          data-aos-easing="ease-in-out"
+        >
+          <h2
+            className="title" /* data-aos="fade-up" data-aos-duration="1500" */
+          >
             /** About */
           </h2>
           <motion.div
@@ -171,11 +182,6 @@ const ExtraInformation = () => {
             /*Framer-motion library*/
             variants={contentVariant('0px 0px 8px rgb(49, 54, 57)')}
             whileHover="hover"
-            /*AOS library*/
-            data-aos="fade-up"
-            data-aos-delay="100"
-            data-aos-duration="1500"
-            data-aos-easing="ease-in-out"
             onClick={() => setShowAbout(true)}
           >
             <motion.div
@@ -188,8 +194,18 @@ const ExtraInformation = () => {
             </motion.div>
           </motion.div>
         </AboutSectionWrapper>
-        <ContactSectionWrapper className="contact-section">
-          <h2 className="title" data-aos="fade-up" data-aos-duration="1500">
+        <ContactSectionWrapper
+          key="contact"
+          className="contact-section"
+          /*AOS*/
+          data-aos="fade-in"
+          data-aos-delay="200"
+          data-aos-duration="1500"
+          data-aos-easing="ease-in-out"
+        >
+          <h2
+            className="title" /* data-aos="fade-up" data-aos-duration="1500" */
+          >
             Contact (<span className="contact-name"> Tony </span>)
           </h2>
           <motion.div
@@ -197,11 +213,6 @@ const ExtraInformation = () => {
             /*Framer-motion library*/
             variants={contentVariant('0px 0px 8px rgb(211, 211, 211)')}
             whileHover="hover"
-            /*AOS library*/
-            data-aos="fade-up"
-            data-aos-delay="100"
-            data-aos-duration="1500"
-            data-aos-easing="ease-in-out"
             onClick={() => setShowContact(true)}
           >
             <motion.div

@@ -21,9 +21,9 @@ const PortfolioContentWrapper = styled(motion.div)<
   PortfolioContentWrapperProps
 >`
   display: grid;
-  grid-template-columns: repeat(auto-fit, min(400px, 100%));
+  grid-template-columns: repeat(auto-fit, min(350px, 100%));
   justify-content: center;
-  grid-auto-rows: 500px;
+  grid-auto-rows: 400px;
   grid-gap: 35px;
   padding: 0 10px;
 
@@ -47,6 +47,11 @@ const PortfolioContentWrapper = styled(motion.div)<
   .card:nth-child(even):hover .content {
     transform: rotateY(-180deg);
     transition: transform 0.5s;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(auto-fit, min(400px, 100%));
+    grid-auto-rows: 500px;
   }
 `;
 

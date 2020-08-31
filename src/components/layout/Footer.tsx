@@ -8,17 +8,19 @@ interface SocialMediaWrapperProps {}
 
 const FooterWrapper = styled.div<FooterWrapperProps>`
   width: 100%;
+  height: 195px;
   position: absolute;
   left: 0;
   bottom: 0;
   font-size: 1.5em;
   background: ${(p) => p.theme.palette.background.footer};
-  padding: 50px 0;
   text-align: center;
   color: ${(p) => p.theme.palette.text.secondary};
 `;
 
-const CopyRight = styled.p<CopyRightProps>``;
+const CopyRight = styled.p<CopyRightProps>`
+  margin-top: 50px;
+`;
 
 const SocialMediaWrapper = styled.div<SocialMediaWrapperProps>`
   padding-top: 15px;

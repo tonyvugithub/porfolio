@@ -25,6 +25,7 @@ const About: React.FC<AboutProps> = ({ showAbout }) => {
         opacity: 1,
         transition: { ease: 'easeInOut', duration: 1, delay: 0.3 },
       }}
+      exit={{ opacity: 0, transition: { duration: 2 } }}
     >
       <div onClick={() => showAbout(false)}>Back</div>
       <div>About</div>

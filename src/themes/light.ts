@@ -7,7 +7,7 @@ const lightTheme: DefaultTheme = {
     text: {
       primary: '#151515',
       secondary: '#fff',
-      accent: '#e1a87a',
+      accent: 'rgb(241, 166, 15)',
       highlight: '#f6416c',
     },
 
