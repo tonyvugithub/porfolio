@@ -10,7 +10,6 @@ interface ContactSectionWrapperProps {}
 
 const ExtraInformationWrapper = styled.div<ExtraInformationWrapperProps>`
   width: 100%;
-  height: 500px;
   display: flex;
   flex-direction: column;
 
@@ -151,7 +150,7 @@ const textVariants = {
 };
 
 const ExtraInformation = () => {
-  const [showContact, setShowContact] = useState(true);
+  const [showContact, setShowContact] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
   let extraInformationContent;
   if (showContact) {

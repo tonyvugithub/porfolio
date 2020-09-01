@@ -16,10 +16,12 @@ const PayLayoutWrapper = styled.div`
 
   #header.sticky {
     background: ${(p) => p.theme.palette.background.header};
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 1px 4px rgba(43, 43, 43, 0.7),
+      0 2px 8px rgba(255, 255, 255, 0.5);
     .logo {
       svg {
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 6px 8px 2px #ffd700;
+        box-shadow: 0 4px 8px 3px rgba(241, 241, 241, 0.85),
+          0 6px 8px rgba(0, 0, 0, 0.5);
       }
     }
     .nav-menu {
@@ -36,12 +38,7 @@ const PayLayoutWrapper = styled.div`
       a.active,
       a:focus,
       a:hover {
-        color: ${(p) => p.theme.palette.text.highlight};
-        ${(p) =>
-          p.theme.id === 'dark' &&
-          css`
-            color: ${p.theme.palette.text.secondary};
-          `}
+        color: #e1a87a;
       }
     }
     .hamburger {

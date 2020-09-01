@@ -7,12 +7,12 @@ const darkTheme: DefaultTheme = {
     text: {
       primary: '#fff',
       secondary: '#14ffec',
-      accent: '#14ffec',
-      highlight: '#fff',
+      accent: '#e1a87a',
+      highlight: 'rgb(151, 216, 196)',
     },
 
     background: {
-      header: 'rgba(18,18,18,.7)',
+      header: '#0d0d0d',
       profile: 'rgb(56, 56, 56)',
       portfolio: '#121212',
       about: 'rgb(56, 56, 56)',

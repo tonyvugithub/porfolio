@@ -46,7 +46,7 @@ const ProfileSummaryWrapper = styled.div`
   display: grid;
   grid-auto-rows: min-content;
   grid-gap: 1.2rem;
-  text-align: center;
+  text-align: start;
   padding: 0 10px;
 
   p {
@@ -56,6 +56,7 @@ const ProfileSummaryWrapper = styled.div`
   h2 {
     font-size: 2.5rem;
     color: #e1a87a;
+    text-align: end;
   }
 
   .divider {

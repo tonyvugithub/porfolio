@@ -11,14 +11,20 @@ interface ContactProps {
 
 const ContactWrapper = styled(motion.div)`
   width: 100%;
+  background: ${(p) => p.theme.palette.background.contact};
+`;
+
+const ContactContent = styled.div`
   margin: 0 auto;
   padding: 50px 10px;
 
   justify-content: center;
   position: relative;
 
+  background: ${(p) => p.theme.palette.background.contact};
+
   h2 {
-    color: rgb(241, 166, 15);
+    color: #e1a87a;
     margin-bottom: 20px;
   }
 
@@ -64,7 +70,7 @@ const ContactWrapper = styled(motion.div)`
     }
 
     .reset {
-      background: rgb(241, 166, 15);
+      background: #e1a87a;
       color: #151515;
       &:hover {
         background: rgb(255, 211, 14);
@@ -80,7 +86,6 @@ const ContactWrapper = styled(motion.div)`
     max-width: 800px;
   }
 `;
-
 const Contact: React.FC<ContactProps> = ({ showContact, showAbout }) => {
   const submitHandler = (e: FormEvent) => {
     e.preventDefault();
@@ -94,28 +99,30 @@ const Contact: React.FC<ContactProps> = ({ showContact, showAbout }) => {
         transition: { ease: 'easeInOut', duration: 1, delay: 0.3 },
       }}
     >
-      <h2>Thanks for reaching out!</h2>
-      <form onSubmit={submitHandler}>
-        <Input label="Email" />
-        <Input label="Message" type="textarea" />
-        <div className="action-buttons">
-          <button className="submit" type="submit">
-            Submit
+      <ContactContent>
+        <h2>Thanks for reaching out!</h2>
+        <form onSubmit={submitHandler}>
+          <Input label="Email" />
+          <Input label="Message" type="textarea" />
+          <div className="action-buttons">
+            <button className="submit" type="submit">
+              Submit
+            </button>
+            <button className="reset" type="reset">
+              Reset
+            </button>
+          </div>
+          <button
+            className="about-redirect"
+            onClick={() => {
+              showContact(false);
+              showAbout(true);
+            }}
+          >
+            Learn More About Me
           </button>
-          <button className="reset" type="reset">
-            Reset
-          </button>
-        </div>
-        <button
-          className="about-redirect"
-          onClick={() => {
-            showContact(false);
-            showAbout(true);
-          }}
-        >
-          Learn More About Me
-        </button>
-      </form>
+        </form>
+      </ContactContent>
     </ContactWrapper>
   );
 };

@@ -34,12 +34,10 @@ const App = () => {
       <BrowserRouter>
         <PageLayout>
           <Suspense fallback={<div>Loading...</div>}>
-            <AnimatePresence exitBeforeEnter>
-              <Switch>
-                <Route path="/blog" component={LazyBlog} />
-                <Route exact path="/" component={LazyHome} />
-              </Switch>
-            </AnimatePresence>
+            <Switch>
+              <Route path="/blog" component={LazyBlog} />
+              <Route exact path="/" component={LazyHome} />
+            </Switch>
           </Suspense>
         </PageLayout>
       </BrowserRouter>

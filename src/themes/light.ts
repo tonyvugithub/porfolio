@@ -8,11 +8,11 @@ const lightTheme: DefaultTheme = {
       primary: '#151515',
       secondary: '#fff',
       accent: 'rgb(241, 166, 15)',
-      highlight: '#f6416c',
+      highlight: '#ce2149',
     },
 
     background: {
-      header: 'rgba(255,255,255,.7)',
+      header: '#ffffff',
       profile: '#f0f0f0',
       portfolio: '#0d0d0d',
       about: '#f0f0f0',

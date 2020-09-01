@@ -73,7 +73,7 @@ const NavMenu = styled(motion.nav)<NavMenuProps>`
   .nav-link.active,
   .nav-link:focus,
   .nav-link:hover {
-    color: ${(p) => p.theme.palette.text.highlight};
+    color: #e1a87a;
   }
 
   @media (min-width: 768px) {
@@ -90,7 +90,7 @@ const StyledLink = styled(Link)<LinkProps>`
   padding: 4px 10px;
   min-width: 50px;
   text-align: center;
-  color: ${(p) => p.theme.palette.text.secondary};
+  color: #fff;
   font-size: 1.2rem;
 `;
 
