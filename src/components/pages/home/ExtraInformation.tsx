@@ -151,7 +151,7 @@ const textVariants = {
 
 const ExtraInformation = () => {
   const [showContact, setShowContact] = useState(false);
-  const [showAbout, setShowAbout] = useState(true);
+  const [showAbout, setShowAbout] = useState(false);
   let extraInformationContent;
   if (showContact) {
     extraInformationContent = (
