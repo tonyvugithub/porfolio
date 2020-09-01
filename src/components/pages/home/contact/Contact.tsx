@@ -26,6 +26,7 @@ const ContactContent = styled.div`
   h2 {
     color: #e1a87a;
     margin-bottom: 20px;
+    font-size: 2.5rem;
   }
 
   form {
@@ -51,7 +52,7 @@ const ContactContent = styled.div`
 
     input:focus,
     textarea:focus {
-      background: rgb(255, 211, 14);
+      background: rgb(241, 241, 241, 0.5);
     }
   }
 
@@ -75,6 +76,13 @@ const ContactContent = styled.div`
       &:hover {
         background: rgb(255, 211, 14);
       }
+    }
+  }
+
+  .about-redirect {
+    &:hover {
+      color: #fff;
+      background: lightgrey;
     }
   }
 

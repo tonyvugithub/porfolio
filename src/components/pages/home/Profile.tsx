@@ -53,9 +53,13 @@ const ProfileSummaryWrapper = styled.div`
     padding: 10px 0;
   }
 
+  h2,
+  h3 {
+    color: #e1a87a;
+  }
+
   h2 {
     font-size: 2.5rem;
-    color: #e1a87a;
     text-align: end;
   }
 
@@ -75,7 +79,6 @@ const SummaryPointWrapper = styled.div`
 const SkillWrapper = styled.div`
   padding: 0 10px;
   margin: 50px auto;
-  margin-top: ;
   display: grid;
   grid-row-gap: 10px;
 
@@ -207,7 +210,7 @@ const Profile = () => {
             <p>
               I am confident in my ability to help your team and contribute
               positive values. Please feel free to take a look at my list of
-              skills below or contact me in the contact section.
+              skills and portfolio below.
             </p>
           </SummaryPointWrapper>
         </ProfileSummaryWrapper>

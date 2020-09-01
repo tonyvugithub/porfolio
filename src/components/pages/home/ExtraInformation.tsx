@@ -151,26 +151,20 @@ const textVariants = {
 
 const ExtraInformation = () => {
   const [showContact, setShowContact] = useState(false);
-  const [showAbout, setShowAbout] = useState(false);
+  const [showAbout, setShowAbout] = useState(true);
   let extraInformationContent;
   if (showContact) {
     extraInformationContent = (
       <Contact showContact={setShowContact} showAbout={setShowAbout} />
     );
   } else if (showAbout) {
-    extraInformationContent = <About showAbout={setShowAbout} />;
+    extraInformationContent = (
+      <About showAbout={setShowAbout} showContact={setShowContact} />
+    );
   } else {
     extraInformationContent = (
       <>
-        <AboutSectionWrapper
-          key="about"
-          className="about-section"
-          /*AOS library*/
-          data-aos="fade-in"
-          data-aos-delay="200"
-          data-aos-duration="1500"
-          data-aos-easing="ease-in-out"
-        >
+        <AboutSectionWrapper key="about" className="about-section">
           <h2
             className="title" /* data-aos="fade-up" data-aos-duration="1500" */
           >
@@ -182,6 +176,11 @@ const ExtraInformation = () => {
             variants={contentVariant('0px 0px 8px rgb(49, 54, 57)')}
             whileHover="hover"
             onClick={() => setShowAbout(true)}
+            /*AOS library*/
+            data-aos="fade-in"
+            data-aos-delay="200"
+            data-aos-duration="1500"
+            data-aos-easing="ease-in-out"
           >
             <motion.div
               className="about-text"
@@ -193,15 +192,7 @@ const ExtraInformation = () => {
             </motion.div>
           </motion.div>
         </AboutSectionWrapper>
-        <ContactSectionWrapper
-          key="contact"
-          className="contact-section"
-          /*AOS*/
-          data-aos="fade-in"
-          data-aos-delay="200"
-          data-aos-duration="1500"
-          data-aos-easing="ease-in-out"
-        >
+        <ContactSectionWrapper key="contact" className="contact-section">
           <h2
             className="title" /* data-aos="fade-up" data-aos-duration="1500" */
           >
@@ -213,6 +204,11 @@ const ExtraInformation = () => {
             variants={contentVariant('0px 0px 8px rgb(211, 211, 211)')}
             whileHover="hover"
             onClick={() => setShowContact(true)}
+            /*AOS*/
+            data-aos="fade-in"
+            data-aos-delay="200"
+            data-aos-duration="1500"
+            data-aos-easing="ease-in-out"
           >
             <motion.div
               className="contact-text"

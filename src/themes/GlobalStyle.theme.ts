@@ -48,7 +48,7 @@ h6 {
 }
 
 p {    
-  line-height: 1.6;
+  line-height: 2rem;
 }
   /* //! theme must end with 'mode' for ease of removing */
   /* .dark-mode {

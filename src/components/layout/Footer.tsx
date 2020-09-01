@@ -15,7 +15,7 @@ const FooterWrapper = styled.div<FooterWrapperProps>`
   font-size: 1.5em;
   background: ${(p) => p.theme.palette.background.footer};
   text-align: center;
-  color: ${(p) => p.theme.palette.text.secondary};
+  color: #fff;
 `;
 
 const CopyRight = styled.p<CopyRightProps>`
