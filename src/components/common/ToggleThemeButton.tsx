@@ -17,14 +17,18 @@ const ToggleThemeButtonWrapper = styled(motion.div)<
   min-width: 50px;
   height: 25px;
   border-radius: 25px;
-  border: 1px solid #eee;
+
   ${(p) =>
     p.theme.id === 'light'
       ? css`
-          background-image: linear-gradient(to right, white, black);
+          background: white;
+          color: #e1a87a;
+          border: 2px solid #f6416c;
         `
       : css`
-          background-image: linear-gradient(to left, white, black);
+          background: rgb(245, 245, 245);
+          color: #0d0d0d;
+          border: 2px solid rgb(151, 216, 196);
         `}
 
   margin: auto 0 auto auto;
@@ -38,11 +42,11 @@ const ToggleThemeButtonWrapper = styled(motion.div)<
 const Notch = styled.div<NotchProps>`
   height: 21px;
   width: 21px;
-  border: 1px solid #eee;
   border-radius: 50%;
   margin-top: 1px;
-  background: yellow;
+  background: transparent;
   transition: transform 100ms linear;
+  text-align: center;
   transform: translateX(${(p) => (p.isDarkTheme ? '26px' : '1px')});
 `;
 
@@ -57,7 +61,13 @@ const ToggleThemeButton: React.FC<ToggleThemeButtonProps> = ({
       animate={{ y: 0, opacity: 1 }}
       transition={{ delay: 1, type: 'spring', stiffness: 40 }}
     >
-      <Notch isDarkTheme={isDarkTheme} />
+      <Notch isDarkTheme={isDarkTheme}>
+        {isDarkTheme ? (
+          <i className="fas fa-moon"></i>
+        ) : (
+          <i className="fas fa-sun"></i>
+        )}
+      </Notch>
     </ToggleThemeButtonWrapper>
   );
 };

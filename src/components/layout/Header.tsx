@@ -156,24 +156,6 @@ const Header: React.FC<{
               Blog
               {/* </motion.div> */}
             </StyledLink>
-            <StyledLink
-              to="/contact"
-              className={
-                pathname === '/contact' ? 'nav-link active' : 'nav-link'
-              }
-            >
-              {/* <motion.div
-                initial={{ y: -150 }}
-                animate={{ y: 0 }}
-                transition={{
-                  delay: 1,
-                  type: 'tween',
-                  duration: 1,
-                }}
-              > */}
-              Contact
-              {/*  </motion.div> */}
-            </StyledLink>
           </NavMenu>
           <div className="hamburger-and-toggle-container">
             <ToggleThemeButton

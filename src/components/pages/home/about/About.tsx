@@ -58,10 +58,14 @@ const BlockQuote = styled.blockquote`
     ${(p) => (p.theme.id === 'light' ? '#ce2149' : 'rgb(151, 216, 196)')};
 `;
 
+const AboutSection = styled.div``;
+
 const AboutParagraph = styled.p`
   color: ${(p) => p.theme.palette.text.primary};
   margin: 10px 0;
 `;
+
+const FactWrapper = styled.div``;
 
 const About: React.FC<AboutProps> = ({ showAbout, showContact }) => {
   return (
@@ -78,40 +82,70 @@ const About: React.FC<AboutProps> = ({ showAbout, showContact }) => {
           Mission-driven full stack web developer with a passion for thoughtful,
           user-friendly and innovative mobile and web applications.
         </BlockQuote>
-        <h3>My story</h3>
-        <AboutParagraph>
-          In more than 10 years studying and working in Canada, I have always
-          sought out opportunities and challenges that give me the meaning of
-          who I am. Despite my professional path has involved a few twists here
-          and there - from a finance intern to a commercial product advisor, and
-          now a new fish in the world of programming - I've never stepped back
-          against challenges to solve problems troubling others.
-        </AboutParagraph>
-        <AboutParagraph>
-          Three words that define who I am: Competent, Hardworking, and
-          Efficient. I do not believe in things that come easy in life, and
-          hence always looking for opportunities to improve myself.
-        </AboutParagraph>
-        <AboutParagraph>
-          In my humble opinion, technology will continue to evolve and shape up
-          how we live in the future. New problems will arise and new problems
-          require new solutions. As a tech lover and problem solver, I am
-          dreaming of becoming a tech creator and help many people fulfil their
-          dreams.
-        </AboutParagraph>
-        <AboutParagraph>
-          Does it sound similar to your ideas? Let's{' '}
-          <span
-            className="contact-redirect"
-            onClick={() => {
-              showAbout(false);
-              showContact(true);
-            }}
-          >
-            Get In Touch
-          </span>{' '}
-          and make wonderful things together, shall we?
-        </AboutParagraph>
+        <AboutSection>
+          <h3>My story</h3>
+          <AboutParagraph>
+            In more than 10 years studying and working in Canada, I have always
+            sought out opportunities and challenges that give me the meaning of
+            who I am. Despite my professional path has involved a few twists
+            here and there - from a finance intern to a commercial product
+            advisor, and now a new fish in the world of programming - I've never
+            stepped back against challenges to solve problems troubling others.
+          </AboutParagraph>
+          <AboutParagraph>
+            Three words that define who I am: Competent, Hardworking, and
+            Efficient. I do not believe in things that come easy in life, and
+            hence always looking for opportunities to improve myself.
+          </AboutParagraph>
+          <AboutParagraph>
+            In my humble opinion, technology will continue to evolve and shape
+            up how we live in the future. New problems will arise and new
+            problems require new solutions. As a tech lover and problem solver,
+            I am dreaming of becoming a tech creator and help many people fulfil
+            their dreams.
+          </AboutParagraph>
+          <AboutParagraph>
+            Does it sound similar to your ideas? Let's{' '}
+            <span
+              className="contact-redirect"
+              onClick={() => {
+                showAbout(false);
+                showContact(true);
+              }}
+            >
+              Get In Touch
+            </span>{' '}
+            and make wonderful things together, shall we?
+          </AboutParagraph>
+        </AboutSection>
+        <AboutSection>
+          <h3>Some Fun Facts About Me</h3>
+          <FactWrapper>
+            <p>
+              I have been to many places (maybe around 30 cities/towns) in
+              Ontario thanks to my work and relocation. Some of them you might
+              have never heard of. Currently, I work out in GTA area.
+            </p>
+          </FactWrapper>
+          <FactWrapper>
+            <p>
+              I am a long-time soccer supporter. I also play soccer once in a
+              while.
+            </p>
+          </FactWrapper>
+          <FactWrapper>
+            <p>
+              Like almost every boy growing up, I play video game too, but the
+              only game I play competitively is Fifa. I guess you know why.
+            </p>
+          </FactWrapper>
+          <FactWrapper>
+            <p>
+              I love travel, especially with my family. I have learn a lot about
+              different cultures wherever I went.
+            </p>
+          </FactWrapper>
+        </AboutSection>
       </AboutContent>
     </AboutWrapper>
   );

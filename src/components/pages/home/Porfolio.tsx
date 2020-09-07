@@ -89,7 +89,7 @@ const Porfolio = () => {
     {
       title: 'Ng Boostrap Blog',
       what: 'A Mock Blogging Website',
-      detail: '',
+      detail: 'Created ',
       liveUrl: 'dasdasdas',
       repoUrl: 'dasdasda',
       demoUrl: 'dsadasdas',
@@ -110,7 +110,8 @@ const Porfolio = () => {
     {
       title: 'React Calculator',
       what: 'A Web-based Calculator',
-      detail: '',
+      detail:
+        'Applied ReactJS and CSS3 knowledge to develop a web- based calculator app inspired by Window 10 calculator following ReactJS component - oriented programming techniques.',
       liveUrl: 'dasdasdas',
       repoUrl: 'dasdasda',
       demoUrl: 'dsadasdas',
@@ -120,7 +121,8 @@ const Porfolio = () => {
     {
       title: 'Leave Store',
       what: 'An E-commerce Store',
-      detail: '',
+      detail:
+        'Built a responsive website for a hypothetical e-commerce merchant selling decorated leaves. Implemented search module for users to search for products by categories and functional shopping cart with email confirmation feature.',
       liveUrl: 'dasdasdas',
       repoUrl: 'dasdasda',
       demoUrl: 'dsadasdas',

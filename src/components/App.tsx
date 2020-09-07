@@ -1,7 +1,6 @@
 import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { AnimatePresence } from 'framer-motion';
 import { GlobalStyle } from 'themes/GlobalStyle.theme';
 //AOS library
 import AOS from 'aos';

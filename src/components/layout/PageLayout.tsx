@@ -43,7 +43,7 @@ const PayLayoutWrapper = styled.div`
     }
     .hamburger {
       > div {
-        background: #151515;
+        background: ${(p) => p.theme.palette.text.primary};
       }
     }
   }
