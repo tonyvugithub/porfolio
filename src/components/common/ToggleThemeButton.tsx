@@ -48,6 +48,7 @@ const Notch = styled.div<NotchProps>`
   transition: transform 100ms linear;
   text-align: center;
   transform: translateX(${(p) => (p.isDarkTheme ? '26px' : '1px')});
+  font-size: 15px !important;
 `;
 
 const ToggleThemeButton: React.FC<ToggleThemeButtonProps> = ({
