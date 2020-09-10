@@ -44,7 +44,7 @@ const Logo: React.FC<LogoProps> = ({ width = 156, height = 156 }) => {
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feGaussianBlur in="BackgroundImage" stdDeviation="2" />
+          <feGaussianBlur stdDeviation="2" />
           <feComposite
             in2="SourceAlpha"
             operator="in"
@@ -67,7 +67,7 @@ const Logo: React.FC<LogoProps> = ({ width = 156, height = 156 }) => {
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feGaussianBlur in="BackgroundImage" stdDeviation="2" />
+          <feGaussianBlur stdDeviation="2" />
           <feComposite
             in2="SourceAlpha"
             operator="in"
