@@ -263,6 +263,8 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ project }) => {
                     variants={linkVariants(0)}
                     onHoverStart={() => setLinkDesc('Live')}
                     onHoverEnd={() => setLinkDesc('')}
+                    href={project.liveUrl}
+                    target="_blank"
                   >
                     <i className="fas fa-external-link-alt"></i>
                   </ProjectLink>
@@ -272,6 +274,8 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ project }) => {
                     variants={linkVariants(0.2)}
                     onHoverStart={() => setLinkDesc('Repo')}
                     onHoverEnd={() => setLinkDesc('')}
+                    href={project.repoUrl}
+                    target="_blank"
                   >
                     <i className="fab fa-github-alt"></i>
                   </ProjectLink>
@@ -281,6 +285,8 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ project }) => {
                     variants={linkVariants(0.5)}
                     onHoverStart={() => setLinkDesc('Demo')}
                     onHoverEnd={() => setLinkDesc('')}
+                    href={project.demoUrl}
+                    target="_blank"
                   >
                     <i className="fas fa-play"></i>
                   </ProjectLink>
