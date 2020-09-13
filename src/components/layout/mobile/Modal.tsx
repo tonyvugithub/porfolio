@@ -79,6 +79,9 @@ const SocialMediaWrapper = styled.div`
   display: grid;
   grid-gap: 20px;
   font-size: 2rem;
+  a {
+    color: #0d0d0d;
+  }
 `;
 
 const linkVariants = {
@@ -150,30 +153,36 @@ const Modal: React.FC<ModalProps> = ({ show, closeModal }) => {
           </motion.div>
         </LinksWrapper>
         <SocialMediaWrapper>
-          <motion.i
-            className="fab fa-linkedin-in icon"
-            variants={iconVariants}
-            initial="start"
-            whileHover="hover"
-            whileTap="tap"
-            title="Linkedin"
-          ></motion.i>
-          <motion.i
-            className="fab fa-github icon"
-            variants={iconVariants}
-            initial="start"
-            whileHover="hover"
-            whileTap="tap"
-            title="Github"
-          ></motion.i>
-          <motion.i
-            className="fas fa-envelope icon"
-            variants={iconVariants}
-            initial="start"
-            whileHover="hover"
-            whileTap="tap"
-            title="Email"
-          ></motion.i>
+          <a href="https://www.linkedin.com/in/tonyknvu/" target="_blank">
+            <motion.i
+              className="fab fa-linkedin-in icon"
+              variants={iconVariants}
+              initial="start"
+              whileHover="hover"
+              whileTap="tap"
+              title="Linkedin"
+            ></motion.i>
+          </a>
+          <a href="https://github.com/tonyvugithub" target="_blank">
+            <motion.i
+              className="fab fa-github icon"
+              variants={iconVariants}
+              initial="start"
+              whileHover="hover"
+              whileTap="tap"
+              title="Github"
+            ></motion.i>
+          </a>
+          <a href="mailto:tonyknvu1@gmail.com">
+            <motion.i
+              className="fas fa-envelope icon"
+              variants={iconVariants}
+              initial="start"
+              whileHover="hover"
+              whileTap="tap"
+              title="Email"
+            ></motion.i>
+          </a>
         </SocialMediaWrapper>
       </SideDrawer>
     </ModalWrapper>

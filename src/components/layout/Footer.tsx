@@ -28,6 +28,9 @@ const SocialMediaWrapper = styled.div<SocialMediaWrapperProps>`
   justify-content: center;
   column-gap: 30px;
   font-size: 2.5em;
+  a {
+    color: inherit !important;
+  }
 
   .icon {
     cursor: pointer;
@@ -60,6 +63,21 @@ const iconVariants = {
 };
 
 const Footer = () => {
+  const socialLinks = [
+    {
+      name: 'linkedin',
+      href: 'https://github.com/tonyvugithub',
+    },
+    {
+      name: 'github',
+      href: 'https://www.linkedin.com/in/tonyknvu/',
+    },
+    {
+      name: 'linkedin',
+      href: 'mailto:tonyknvu1@gmail.com',
+    },
+  ];
+
   const currentYear = new Date().getFullYear();
   return (
     <FooterWrapper>
@@ -72,30 +90,36 @@ const Footer = () => {
         Tony Vu {currentYear}
       </CopyRight>
       <SocialMediaWrapper>
-        <motion.i
-          className="fab fa-linkedin-in icon"
-          variants={iconVariants}
-          initial="start"
-          whileHover="hover"
-          whileTap="tap"
-          title="Linkedin"
-        ></motion.i>
-        <motion.i
-          className="fab fa-github icon"
-          variants={iconVariants}
-          initial="start"
-          whileHover="hover"
-          whileTap="tap"
-          title="Github"
-        ></motion.i>
-        <motion.i
-          className="fas fa-envelope icon"
-          variants={iconVariants}
-          initial="start"
-          whileHover="hover"
-          whileTap="tap"
-          title="Email"
-        ></motion.i>
+        <a href="https://www.linkedin.com/in/tonyknvu/" target="_blank">
+          <motion.i
+            className="fab fa-linkedin-in icon"
+            variants={iconVariants}
+            initial="start"
+            whileHover="hover"
+            whileTap="tap"
+            title="Linkedin"
+          ></motion.i>
+        </a>
+        <a href="https://github.com/tonyvugithub" target="_blank">
+          <motion.i
+            className="fab fa-github icon"
+            variants={iconVariants}
+            initial="start"
+            whileHover="hover"
+            whileTap="tap"
+            title="Github"
+          ></motion.i>
+        </a>
+        <a href="mailto:tonyknvu1@gmail.com">
+          <motion.i
+            className="fas fa-envelope icon"
+            variants={iconVariants}
+            initial="start"
+            whileHover="hover"
+            whileTap="tap"
+            title="Email"
+          ></motion.i>
+        </a>
       </SocialMediaWrapper>
     </FooterWrapper>
   );
